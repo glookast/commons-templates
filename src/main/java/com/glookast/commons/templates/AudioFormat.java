@@ -347,4 +347,9 @@ public class AudioFormat implements Serializable
         return this.containerFormatIds;
     }
 
+    @Override
+    public String toString()
+    {
+        return "AudioFormat{" + "id=" + id + ", codecName=" + codecName + ", codecVendor=" + codecVendor + ", codecVersion=" + codecVersion + ", codecFamily=" + codecFamily + ", channels=" + channels + ", sampleSize=" + sampleSize + ", samplingRate=" + samplingRate + ", bitRate=" + bitRate + ", constantBitRate=" + constantBitRate + ", containerFormatIds=" + containerFormatIds + '}';
+    }
 }

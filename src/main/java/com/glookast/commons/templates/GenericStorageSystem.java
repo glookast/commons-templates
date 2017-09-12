@@ -87,4 +87,9 @@ public class GenericStorageSystem
         this.location = value;
     }
 
+    @Override
+    public String toString()
+    {
+        return "GenericStorageSystem{" + "id=" + id + ", name=" + name + ", description=" + description +  ", location=" + location + '}';
+    }
 }

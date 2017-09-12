@@ -58,4 +58,10 @@ public abstract class AvidStorageSystem
     {
         super(ss);
     }
+
+    @Override
+    public String toString()
+    {
+        return "AvidStorageSystem{" + "id=" + id + ", name=" + name + ", description=" + description + '}';
+    }
 }

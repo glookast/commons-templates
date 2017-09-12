@@ -152,4 +152,9 @@ public class ContainerFormat implements Serializable
         return this.systemTypes;
     }
 
+    @Override
+    public String toString()
+    {
+        return "ContainerFormat{" + "id=" + id + ", name=" + name + ", systemTypes=" + systemTypes + '}';
+    }
 }

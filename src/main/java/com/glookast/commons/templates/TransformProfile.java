@@ -275,4 +275,9 @@ public class TransformProfile implements Serializable
         return this.outputSystemIds;
     }
 
+    @Override
+    public String toString()
+    {
+        return "TransformProfile{" + "id=" + id + ", name=" + name + ", description=" + description + ", videoFormatId=" + videoFormatId + ", audioFormatId=" + audioFormatId + ", containerFormatId=" + containerFormatId + ", outputSystemIds=" + outputSystemIds + '}';
+    }
 }

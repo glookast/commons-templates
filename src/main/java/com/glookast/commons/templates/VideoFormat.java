@@ -429,4 +429,9 @@ public class VideoFormat implements Serializable
         return this.containerFormatIds;
     }
 
+    @Override
+    public String toString()
+    {
+        return "VideoFormat{" + "id=" + id + ", codecName=" + codecName + ", codecVendor=" + codecVendor + ", codecVersion=" + codecVersion + ", codecFamily=" + codecFamily + ", displayWidth=" + displayWidth + ", displayHeight=" + displayHeight + ", frameRate=" + frameRate + ", interlaced=" + interlaced + ", topFieldFirst=" + topFieldFirst + ", aspectRatio=" + aspectRatio + ", bitRate=" + bitRate + ", constantBitRate=" + constantBitRate + ", containerFormatIds=" + containerFormatIds + '}';
+    }
 }
