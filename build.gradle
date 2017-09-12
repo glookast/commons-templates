@@ -1,0 +1,87 @@
+apply plugin: "java"
+apply plugin: "maven"
+apply plugin: "signing"
+
+group = "com.glookast.commons"
+version = "1.0.0"
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+jar {
+    manifest {
+        attributes "Implementation-Version": version
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile "com.glookast.commons:commons-base:1.0.0"
+    compile "com.glookast.commons:commons-xml:1.0.0"
+}
+
+task javadocJar(type: Jar) {
+    classifier = "javadoc"
+    from javadoc
+}
+
+task sourcesJar(type: Jar) {
+    classifier = "sources"
+    from sourceSets.main.allSource
+}
+
+artifacts {
+    archives javadocJar, sourcesJar
+}
+
+signing {
+    sign configurations.archives
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+
+            repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+                authentication(userName: ossrhUsername, password: ossrhPassword)
+            }
+
+            snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
+                authentication(userName: ossrhUsername, password: ossrhPassword)
+            }
+
+            pom.project {
+                name "commons-templates"
+                packaging "jar"
+                // optionally artifactId can be defined here
+                description "Common classes used for interfacing with Glookast Products"
+                url "http://github.com/glookast/commons-templates"
+
+                scm {
+                    connection "scm:git:git://github.com/glookast/commons-templates.git"
+                    developerConnection "scm:git:ssh://github.com:glookast/commons-templates.git"
+                    url "http://github.com/glookast/commons-templates/tree/master"
+                }
+
+                licenses {
+                    license {
+                        name "The Apache License, Version 2.0"
+                        url "http://www.apache.org/licenses/LICENSE-2.0.txt"
+                    }
+                }
+
+                developers {
+                    developer {
+                        id "joostrovers"
+                        name "Joost Rovers"
+                        email "joost.rovers@glookast.com"
+                    }
+                }
+            }
+        }
+    }
+}
