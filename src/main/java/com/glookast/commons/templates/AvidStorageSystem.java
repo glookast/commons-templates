@@ -28,7 +28,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "AvidStorageSystem", namespace = "http://templates.commons.glookast.com")
 @XmlSeeAlso({
-    AvidNexusStorageSystem.class,
+    AvidNexisStorageSystem.class,
     AvidOtherStorageSystem.class,
     AvidMediaNetworkStorageSystem.class
 })
