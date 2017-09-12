@@ -10,12 +10,12 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for AvidNexusStorageSystem complex type.
+ * <p>Java class for AvidNexisStorageSystem complex type.
  *
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="AvidNexusStorageSystem">
+ * &lt;complexType name="AvidNexisStorageSystem">
  *   &lt;complexContent>
  *     &lt;extension base="{http://templates.commons.glookast.com}AvidStorageSystem">
  *       &lt;sequence>
@@ -30,11 +30,11 @@ import javax.xml.bind.annotation.XmlType;
  *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "AvidNexusStorageSystem", namespace = "http://templates.commons.glookast.com", propOrder = {
+@XmlType(name = "AvidNexisStorageSystem", namespace = "http://templates.commons.glookast.com", propOrder = {
     "systemDirector",
     "workspace"
 })
-public class AvidNexusStorageSystem
+public class AvidNexisStorageSystem
     extends AvidStorageSystem
     implements Serializable
 {
@@ -48,7 +48,7 @@ public class AvidNexusStorageSystem
      * Default no-arg constructor
      *
      */
-    public AvidNexusStorageSystem() {
+    public AvidNexisStorageSystem() {
         super();
     }
 
@@ -56,13 +56,13 @@ public class AvidNexusStorageSystem
      * Fully-initialising value constructor
      *
      */
-    public AvidNexusStorageSystem(final UUID id, final String name, final String description, final String systemDirector, final String workspace) {
+    public AvidNexisStorageSystem(final UUID id, final String name, final String description, final String systemDirector, final String workspace) {
         super(id, name, description);
         this.systemDirector = systemDirector;
         this.workspace = workspace;
     }
 
-    public AvidNexusStorageSystem(AvidNexusStorageSystem ss)
+    public AvidNexisStorageSystem(AvidNexisStorageSystem ss)
     {
         super(ss);
         this.systemDirector = ss.systemDirector;
@@ -120,6 +120,6 @@ public class AvidNexusStorageSystem
     @Override
     public String toString()
     {
-        return "AvidNexusStorageSystem{" + "id=" + id + ", name=" + name + ", description=" + description +  ", systemDirector=" + systemDirector + ", workspace=" + workspace + '}';
+        return "AvidNexisStorageSystem{" + "id=" + id + ", name=" + name + ", description=" + description +  ", systemDirector=" + systemDirector + ", workspace=" + workspace + '}';
     }
 }
