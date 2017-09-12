@@ -1,3 +1,4 @@
+
 package com.glookast.commons.templates;
 
 import java.io.Serializable;
@@ -30,10 +31,10 @@ import com.glookast.commons.xml.XmlAdapterUUID;
  *         &lt;element name="codecFamily" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="displayWidth" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="displayHeight" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="frameRate" type="{http://base.api.glookast.com}Rational"/>
+ *         &lt;element name="frameRate" type="{http://base.commons.glookast.com}Rational"/>
  *         &lt;element name="interlaced" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
  *         &lt;element name="topFieldFirst" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
- *         &lt;element name="aspectRatio" type="{http://base.api.glookast.com}Rational"/>
+ *         &lt;element name="aspectRatio" type="{http://base.commons.glookast.com}Rational"/>
  *         &lt;element name="bitRate" type="{http://www.w3.org/2001/XMLSchema}long"/>
  *         &lt;element name="constantBitRate" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
  *         &lt;element name="containerFormatIds" type="{http://base.commons.glookast.com}UUID" maxOccurs="unbounded" minOccurs="0"/>
@@ -417,7 +418,7 @@ public class VideoFormat implements Serializable
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link UUID }
+     * {@link String }
      *
      *
      */

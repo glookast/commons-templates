@@ -1,3 +1,4 @@
+
 package com.glookast.commons.templates;
 
 import java.io.Serializable;
@@ -25,7 +26,7 @@ import com.glookast.commons.xml.XmlAdapterUUID;
  *       &lt;sequence>
  *         &lt;element name="id" type="{http://base.commons.glookast.com}UUID"/>
  *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="storageSystemTypes" type="{http://templates.commons.glookast.com}StorageSystemType" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="systemTypes" type="{http://templates.commons.glookast.com}SystemType" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -38,7 +39,7 @@ import com.glookast.commons.xml.XmlAdapterUUID;
 @XmlType(name = "ContainerFormat", namespace = "http://templates.commons.glookast.com", propOrder = {
     "id",
     "name",
-    "storageSystemTypes"
+    "systemTypes"
 })
 public class ContainerFormat implements Serializable
 {
@@ -49,7 +50,7 @@ public class ContainerFormat implements Serializable
     @XmlElement(required = true)
     protected String name;
     @XmlSchemaType(name = "string")
-    protected List<StorageSystemType> storageSystemTypes;
+    protected List<SystemType> systemTypes;
 
     /**
      * Default no-arg constructor
@@ -69,9 +70,9 @@ public class ContainerFormat implements Serializable
     }
 
     public ContainerFormat(ContainerFormat cf) {
-        this.id = id;
-        this.name = name;
-        this.storageSystemTypes = new ArrayList<>(cf.getStorageSystemTypes());
+        this.id = cf.id;
+        this.name = cf.name;
+        this.systemTypes = new ArrayList<>(cf.getSystemTypes());
     }
 
     /**
@@ -123,32 +124,32 @@ public class ContainerFormat implements Serializable
     }
 
     /**
-     * Gets the value of the storageSystemTypes property.
+     * Gets the value of the systemTypes property.
      *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the storageSystemTypes property.
+     * This is why there is not a <CODE>set</CODE> method for the systemTypes property.
      *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getStorageSystemTypes().add(newItem);
+     *    getSystemTypes().add(newItem);
      * </pre>
      *
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link StorageSystemType }
+     * {@link SystemType }
      *
      *
      */
-    public List<StorageSystemType> getStorageSystemTypes() {
-        if (storageSystemTypes == null) {
-            storageSystemTypes = new ArrayList<StorageSystemType>();
+    public List<SystemType> getSystemTypes() {
+        if (systemTypes == null) {
+            systemTypes = new ArrayList<SystemType>();
         }
-        return this.storageSystemTypes;
+        return this.systemTypes;
     }
 
 }

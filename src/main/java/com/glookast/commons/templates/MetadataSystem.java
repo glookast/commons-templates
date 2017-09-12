@@ -1,3 +1,4 @@
+
 package com.glookast.commons.templates;
 
 import java.io.Serializable;
@@ -5,10 +6,9 @@ import java.util.UUID;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-import com.glookast.commons.base.PropertyList;
 import com.glookast.commons.xml.XmlAdapterUUID;
 
 
@@ -25,8 +25,6 @@ import com.glookast.commons.xml.XmlAdapterUUID;
  *         &lt;element name="id" type="{http://base.commons.glookast.com}UUID"/>
  *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="description" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="type" type="{http://templates.commons.glookast.com}MetadataSystemType"/>
- *         &lt;element name="properties" type="{http://base.commons.glookast.com}PropertyList"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -39,11 +37,14 @@ import com.glookast.commons.xml.XmlAdapterUUID;
 @XmlType(name = "MetadataSystem", namespace = "http://templates.commons.glookast.com", propOrder = {
     "id",
     "name",
-    "description",
-    "type",
-    "properties"
+    "description"
 })
-public class MetadataSystem implements Serializable
+@XmlSeeAlso({
+    AvidAafExportMetadataSystem.class,
+    XmlExportMetadataSystem.class,
+    AvidInterplayMetadataSystem.class
+})
+public abstract class MetadataSystem implements Serializable
 {
 
     @XmlElement(required = true, type = String.class)
@@ -53,11 +54,6 @@ public class MetadataSystem implements Serializable
     protected String name;
     @XmlElement(required = true)
     protected String description;
-    @XmlElement(required = true)
-    @XmlSchemaType(name = "string")
-    protected MetadataSystemType type;
-    @XmlElement(required = true)
-    protected PropertyList properties;
 
     /**
      * Default no-arg constructor
@@ -71,19 +67,16 @@ public class MetadataSystem implements Serializable
      * Fully-initialising value constructor
      *
      */
-    public MetadataSystem(final UUID id, final String name, final String description, final MetadataSystemType type) {
+    public MetadataSystem(final UUID id, final String name, final String description) {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.type = type;
     }
 
     public MetadataSystem(MetadataSystem ms) {
         this.id = ms.id;
         this.name = ms.name;
         this.description = ms.description;
-        this.type = ms.type;
-        this.properties = new PropertyList(ms.getProperties());
     }
 
     /**
@@ -156,57 +149,6 @@ public class MetadataSystem implements Serializable
      */
     public void setDescription(String value) {
         this.description = value;
-    }
-
-    /**
-     * Gets the value of the type property.
-     *
-     * @return
-     *     possible object is
-     *     {@link MetadataSystemType }
-     *
-     */
-    public MetadataSystemType getType() {
-        return type;
-    }
-
-    /**
-     * Sets the value of the type property.
-     *
-     * @param value
-     *     allowed object is
-     *     {@link MetadataSystemType }
-     *
-     */
-    public void setType(MetadataSystemType value) {
-        this.type = value;
-    }
-
-    /**
-     * Gets the value of the properties property.
-     *
-     * @return
-     *     possible object is
-     *     {@link PropertyList }
-     *
-     */
-    public PropertyList getProperties() {
-        if (properties == null) {
-            properties = new PropertyList();
-        }
-        return properties;
-    }
-
-    /**
-     * Sets the value of the properties property.
-     *
-     * @param value
-     *     allowed object is
-     *     {@link PropertyList }
-     *
-     */
-    public void setProperties(PropertyList value) {
-        this.properties = new PropertyList(value);
     }
 
 }
