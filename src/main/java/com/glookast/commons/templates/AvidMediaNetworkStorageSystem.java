@@ -117,4 +117,11 @@ public class AvidMediaNetworkStorageSystem
         this.workspace = value;
     }
 
+    @Override
+    public String toString()
+    {
+        return "AvidMediaNetworkStorageSystem{" + "id=" + id + ", name=" + name + ", description=" + description +  ", fileManager=" + fileManager + ", workspace=" + workspace + '}';
+    }
+
+
 }

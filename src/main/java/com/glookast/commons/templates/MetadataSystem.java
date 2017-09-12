@@ -151,4 +151,9 @@ public abstract class MetadataSystem implements Serializable
         this.description = value;
     }
 
+    @Override
+    public String toString()
+    {
+        return "MetadataSystem{" + "id=" + id + ", name=" + name + ", description=" + description + '}';
+    }
 }

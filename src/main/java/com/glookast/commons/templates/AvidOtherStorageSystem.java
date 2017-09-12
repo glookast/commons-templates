@@ -87,4 +87,9 @@ public class AvidOtherStorageSystem
         this.location = value;
     }
 
+    @Override
+    public String toString()
+    {
+        return "AvidOtherStorageSystem{" + "id=" + id + ", name=" + name + ", description=" + description +  ", location=" + location + '}';
+    }
 }

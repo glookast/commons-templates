@@ -87,4 +87,11 @@ public class XmlExportMetadataSystem
         this.location = value;
     }
 
+    @Override
+    public String toString()
+    {
+        return "XmlExportMetadataSystem{" + "id=" + id + ", name=" + name + ", description=" + description + ", location=" + location + '}';
+    }
+
+
 }

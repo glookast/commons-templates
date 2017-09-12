@@ -213,4 +213,9 @@ public class OutputSystem implements Serializable
         return this.metadataSystemIds;
     }
 
+    @Override
+    public String toString()
+    {
+        return "OutputSystem{" + "id=" + id + ", name=" + name + ", description=" + description + ", storageSystemId=" + storageSystemId + ", metadataSystemIds=" + metadataSystemIds + '}';
+    }
 }

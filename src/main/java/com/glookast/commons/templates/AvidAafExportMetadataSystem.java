@@ -87,4 +87,9 @@ public class AvidAafExportMetadataSystem
         this.location = value;
     }
 
+    @Override
+    public String toString()
+    {
+        return "AvidAafExportMetadataSystem{" + "id=" + id + ", name=" + name + ", description=" + description + ", location=" + location + '}';
+    }
 }

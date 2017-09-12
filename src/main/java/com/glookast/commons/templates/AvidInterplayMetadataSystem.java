@@ -230,4 +230,11 @@ public class AvidInterplayMetadataSystem
         this.folder = value;
     }
 
+    @Override
+    public String toString()
+    {
+        return "AvidInterplayMetadataSystem{" + "id=" + id + ", name=" + name + ", description=" + description + ", hostname=" + hostname + ", port=" + port + ", workgroup=" + workgroup + ", username=" + username + ", password=[RESTRICTED], folder=" + folder + '}';
+    }
+
+
 }

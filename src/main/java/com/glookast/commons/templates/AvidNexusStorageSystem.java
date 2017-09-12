@@ -117,4 +117,9 @@ public class AvidNexusStorageSystem
         this.workspace = value;
     }
 
+    @Override
+    public String toString()
+    {
+        return "AvidNexusStorageSystem{" + "id=" + id + ", name=" + name + ", description=" + description +  ", systemDirector=" + systemDirector + ", workspace=" + workspace + '}';
+    }
 }

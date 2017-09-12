@@ -150,4 +150,9 @@ public abstract class StorageSystem implements Serializable
         this.description = value;
     }
 
+    @Override
+    public String toString()
+    {
+        return "StorageSystem{" + "id=" + id + ", name=" + name + ", description=" + description + '}';
+    }
 }

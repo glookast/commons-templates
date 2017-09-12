@@ -182,4 +182,9 @@ public class Template implements Serializable
         return this.transformProfileIds;
     }
 
+    @Override
+    public String toString()
+    {
+        return "Template{" + "id=" + id + ", name=" + name + ", description=" + description + ", transformProfileIds=" + transformProfileIds + '}';
+    }
 }
