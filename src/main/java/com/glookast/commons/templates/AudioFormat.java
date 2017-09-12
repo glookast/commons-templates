@@ -1,3 +1,4 @@
+
 package com.glookast.commons.templates;
 
 import java.io.Serializable;
@@ -335,7 +336,7 @@ public class AudioFormat implements Serializable
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link UUID }
+     * {@link String }
      *
      *
      */

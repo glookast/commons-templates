@@ -1,3 +1,4 @@
+
 package com.glookast.commons.templates;
 
 import java.io.Serializable;

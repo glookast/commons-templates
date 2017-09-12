@@ -1,3 +1,4 @@
+
 package com.glookast.commons.templates;
 
 import java.io.Serializable;
@@ -25,9 +26,9 @@ import com.glookast.commons.xml.XmlAdapterUUID;
  *         &lt;element name="id" type="{http://base.commons.glookast.com}UUID"/>
  *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="description" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="videoFormatId" type="{http://base.commons.glookast.com}UUID""/>
- *         &lt;element name="audioFormatId" type="{http://base.commons.glookast.com}UUID""/>
- *         &lt;element name="containerFormatId" type="{http://base.commons.glookast.com}UUID""/>
+ *         &lt;element name="videoFormatId" type="{http://base.commons.glookast.com}UUID"/>
+ *         &lt;element name="audioFormatId" type="{http://base.commons.glookast.com}UUID"/>
+ *         &lt;element name="containerFormatId" type="{http://base.commons.glookast.com}UUID"/>
  *         &lt;element name="outputSystemIds" type="{http://base.commons.glookast.com}UUID" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
