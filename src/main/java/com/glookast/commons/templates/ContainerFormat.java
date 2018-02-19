@@ -1,17 +1,14 @@
 
 package com.glookast.commons.templates;
 
+import com.glookast.commons.xml.XmlAdapterUUID;
+
+import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-import com.glookast.commons.xml.XmlAdapterUUID;
 
 
 /**
@@ -20,20 +17,18 @@ import com.glookast.commons.xml.XmlAdapterUUID;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="ContainerFormat">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="id" type="{http://base.commons.glookast.com}UUID"/>
- *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="systemTypes" type="{http://templates.commons.glookast.com}SystemType" maxOccurs="unbounded" minOccurs="0"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="ContainerFormat"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="id" type="{http://base.commons.glookast.com}UUID"/&gt;
+ *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="systemTypes" type="{http://templates.commons.glookast.com}SystemType" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- *
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ContainerFormat", namespace = "http://templates.commons.glookast.com", propOrder = {
@@ -54,22 +49,23 @@ public class ContainerFormat implements Serializable
 
     /**
      * Default no-arg constructor
-     *
      */
-    public ContainerFormat() {
+    public ContainerFormat()
+    {
         super();
     }
 
     /**
      * Fully-initialising value constructor
-     *
      */
-    public ContainerFormat(final UUID id, final String name) {
+    public ContainerFormat(final UUID id, final String name)
+    {
         this.id = id;
         this.name = name;
     }
 
-    public ContainerFormat(ContainerFormat cf) {
+    public ContainerFormat(ContainerFormat cf)
+    {
         this.id = cf.id;
         this.name = cf.name;
         this.systemTypes = new ArrayList<>(cf.getSystemTypes());
@@ -78,48 +74,44 @@ public class ContainerFormat implements Serializable
     /**
      * Gets the value of the id property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible object is
+     * {@link String }
      */
-    public UUID getId() {
+    public UUID getId()
+    {
         return id;
     }
 
     /**
      * Sets the value of the id property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is
+     *              {@link String }
      */
-    public void setId(UUID value) {
+    public void setId(UUID value)
+    {
         this.id = value;
     }
 
     /**
      * Gets the value of the name property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible object is
+     * {@link String }
      */
-    public String getName() {
+    public String getName()
+    {
         return name;
     }
 
     /**
      * Sets the value of the name property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is
+     *              {@link String }
      */
-    public void setName(String value) {
+    public void setName(String value)
+    {
         this.name = value;
     }
 
@@ -142,10 +134,9 @@ public class ContainerFormat implements Serializable
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link SystemType }
-     *
-     *
      */
-    public List<SystemType> getSystemTypes() {
+    public List<SystemType> getSystemTypes()
+    {
         if (systemTypes == null) {
             systemTypes = new ArrayList<SystemType>();
         }

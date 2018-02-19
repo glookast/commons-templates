@@ -1,12 +1,12 @@
 
 package com.glookast.commons.templates;
 
-import java.io.Serializable;
-import java.util.UUID;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
+import java.io.Serializable;
+import java.util.UUID;
 
 
 /**
@@ -15,19 +15,17 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="AvidNexisStorageSystem">
- *   &lt;complexContent>
- *     &lt;extension base="{http://templates.commons.glookast.com}AvidStorageSystem">
- *       &lt;sequence>
- *         &lt;element name="systemDirector" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="workspace" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *       &lt;/sequence>
- *     &lt;/extension>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="AvidNexisStorageSystem"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;extension base="{http://templates.commons.glookast.com}AvidStorageSystem"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="systemDirector" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="workspace" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/extension&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- *
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "AvidNexisStorageSystem", namespace = "http://templates.commons.glookast.com", propOrder = {
@@ -46,17 +44,17 @@ public class AvidNexisStorageSystem
 
     /**
      * Default no-arg constructor
-     *
      */
-    public AvidNexisStorageSystem() {
+    public AvidNexisStorageSystem()
+    {
         super();
     }
 
     /**
      * Fully-initialising value constructor
-     *
      */
-    public AvidNexisStorageSystem(final UUID id, final String name, final String description, final String systemDirector, final String workspace) {
+    public AvidNexisStorageSystem(final UUID id, final String name, final String description, final String systemDirector, final String workspace)
+    {
         super(id, name, description);
         this.systemDirector = systemDirector;
         this.workspace = workspace;
@@ -72,54 +70,50 @@ public class AvidNexisStorageSystem
     /**
      * Gets the value of the systemDirector property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible object is
+     * {@link String }
      */
-    public String getSystemDirector() {
+    public String getSystemDirector()
+    {
         return systemDirector;
     }
 
     /**
      * Sets the value of the systemDirector property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is
+     *              {@link String }
      */
-    public void setSystemDirector(String value) {
+    public void setSystemDirector(String value)
+    {
         this.systemDirector = value;
     }
 
     /**
      * Gets the value of the workspace property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible object is
+     * {@link String }
      */
-    public String getWorkspace() {
+    public String getWorkspace()
+    {
         return workspace;
     }
 
     /**
      * Sets the value of the workspace property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is
+     *              {@link String }
      */
-    public void setWorkspace(String value) {
+    public void setWorkspace(String value)
+    {
         this.workspace = value;
     }
 
     @Override
     public String toString()
     {
-        return "AvidNexisStorageSystem{" + "id=" + id + ", name=" + name + ", description=" + description +  ", systemDirector=" + systemDirector + ", workspace=" + workspace + '}';
+        return "AvidNexisStorageSystem{" + "id=" + id + ", name=" + name + ", description=" + description + ", systemDirector=" + systemDirector + ", workspace=" + workspace + '}';
     }
 }

@@ -1,16 +1,17 @@
 
 package com.glookast.commons.templates;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
+import com.glookast.commons.xml.XmlAdapterUUID;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-import com.glookast.commons.xml.XmlAdapterUUID;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
 
 /**
@@ -19,24 +20,22 @@ import com.glookast.commons.xml.XmlAdapterUUID;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="TransformProfile">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="id" type="{http://base.commons.glookast.com}UUID"/>
- *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="description" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="videoFormatId" type="{http://base.commons.glookast.com}UUID"/>
- *         &lt;element name="audioFormatId" type="{http://base.commons.glookast.com}UUID"/>
- *         &lt;element name="containerFormatId" type="{http://base.commons.glookast.com}UUID"/>
- *         &lt;element name="outputSystemIds" type="{http://base.commons.glookast.com}UUID" maxOccurs="unbounded" minOccurs="0"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="TransformProfile"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="id" type="{http://base.commons.glookast.com}UUID"/&gt;
+ *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="description" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="videoFormatId" type="{http://base.commons.glookast.com}UUID"/&gt;
+ *         &lt;element name="audioFormatId" type="{http://base.commons.glookast.com}UUID"/&gt;
+ *         &lt;element name="containerFormatId" type="{http://base.commons.glookast.com}UUID"/&gt;
+ *         &lt;element name="outputSystemIds" type="{http://base.commons.glookast.com}UUID" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- *
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TransformProfile", namespace = "http://templates.commons.glookast.com", propOrder = {
@@ -73,17 +72,17 @@ public class TransformProfile implements Serializable
 
     /**
      * Default no-arg constructor
-     *
      */
-    public TransformProfile() {
+    public TransformProfile()
+    {
         super();
     }
 
     /**
      * Fully-initialising value constructor
-     *
      */
-    public TransformProfile(final UUID id, final String name, final String description, final UUID videoFormatId, final UUID audioFormatId, final UUID containerFormatId) {
+    public TransformProfile(final UUID id, final String name, final String description, final UUID videoFormatId, final UUID audioFormatId, final UUID containerFormatId)
+    {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -92,7 +91,8 @@ public class TransformProfile implements Serializable
         this.containerFormatId = containerFormatId;
     }
 
-    public TransformProfile(TransformProfile tp) {
+    public TransformProfile(TransformProfile tp)
+    {
         this.id = tp.id;
         this.name = tp.name;
         this.description = tp.description;
@@ -105,144 +105,132 @@ public class TransformProfile implements Serializable
     /**
      * Gets the value of the id property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible object is
+     * {@link String }
      */
-    public UUID getId() {
+    public UUID getId()
+    {
         return id;
     }
 
     /**
      * Sets the value of the id property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is
+     *              {@link String }
      */
-    public void setId(UUID value) {
+    public void setId(UUID value)
+    {
         this.id = value;
     }
 
     /**
      * Gets the value of the name property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible object is
+     * {@link String }
      */
-    public String getName() {
+    public String getName()
+    {
         return name;
     }
 
     /**
      * Sets the value of the name property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is
+     *              {@link String }
      */
-    public void setName(String value) {
+    public void setName(String value)
+    {
         this.name = value;
     }
 
     /**
      * Gets the value of the description property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible object is
+     * {@link String }
      */
-    public String getDescription() {
+    public String getDescription()
+    {
         return description;
     }
 
     /**
      * Sets the value of the description property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is
+     *              {@link String }
      */
-    public void setDescription(String value) {
+    public void setDescription(String value)
+    {
         this.description = value;
     }
 
     /**
      * Gets the value of the videoFormatId property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible object is
+     * {@link String }
      */
-    public UUID getVideoFormatId() {
+    public UUID getVideoFormatId()
+    {
         return videoFormatId;
     }
 
     /**
      * Sets the value of the videoFormatId property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is
+     *              {@link String }
      */
-    public void setVideoFormatId(UUID value) {
+    public void setVideoFormatId(UUID value)
+    {
         this.videoFormatId = value;
     }
 
     /**
      * Gets the value of the audioFormatId property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible object is
+     * {@link String }
      */
-    public UUID getAudioFormatId() {
+    public UUID getAudioFormatId()
+    {
         return audioFormatId;
     }
 
     /**
      * Sets the value of the audioFormatId property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is
+     *              {@link String }
      */
-    public void setAudioFormatId(UUID value) {
+    public void setAudioFormatId(UUID value)
+    {
         this.audioFormatId = value;
     }
 
     /**
      * Gets the value of the containerFormatId property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible object is
+     * {@link String }
      */
-    public UUID getContainerFormatId() {
+    public UUID getContainerFormatId()
+    {
         return containerFormatId;
     }
 
     /**
      * Sets the value of the containerFormatId property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is
+     *              {@link String }
      */
-    public void setContainerFormatId(UUID value) {
+    public void setContainerFormatId(UUID value)
+    {
         this.containerFormatId = value;
     }
 
@@ -265,10 +253,9 @@ public class TransformProfile implements Serializable
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link String }
-     *
-     *
      */
-    public List<UUID> getOutputSystemIds() {
+    public List<UUID> getOutputSystemIds()
+    {
         if (outputSystemIds == null) {
             outputSystemIds = new ArrayList<UUID>();
         }

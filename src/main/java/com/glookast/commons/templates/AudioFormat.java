@@ -1,16 +1,17 @@
 
 package com.glookast.commons.templates;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
+import com.glookast.commons.xml.XmlAdapterUUID;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-import com.glookast.commons.xml.XmlAdapterUUID;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
 
 /**
@@ -19,28 +20,26 @@ import com.glookast.commons.xml.XmlAdapterUUID;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="AudioFormat">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="id" type="{http://base.commons.glookast.com}UUID"/>
- *         &lt;element name="codecName" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="codecVendor" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="codecVersion" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="codecFamily" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="channels" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="sampleSize" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="samplingRate" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="bitRate" type="{http://www.w3.org/2001/XMLSchema}long"/>
- *         &lt;element name="constantBitRate" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
- *         &lt;element name="containerFormatIds" type="{http://base.commons.glookast.com}UUID" maxOccurs="unbounded" minOccurs="0"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="AudioFormat"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="id" type="{http://base.commons.glookast.com}UUID"/&gt;
+ *         &lt;element name="codecName" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="codecVendor" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="codecVersion" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="codecFamily" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="channels" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+ *         &lt;element name="sampleSize" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+ *         &lt;element name="samplingRate" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+ *         &lt;element name="bitRate" type="{http://www.w3.org/2001/XMLSchema}long"/&gt;
+ *         &lt;element name="constantBitRate" type="{http://www.w3.org/2001/XMLSchema}boolean"/&gt;
+ *         &lt;element name="containerFormatIds" type="{http://base.commons.glookast.com}UUID" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- *
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "AudioFormat", namespace = "http://templates.commons.glookast.com", propOrder = {
@@ -81,17 +80,17 @@ public class AudioFormat implements Serializable
 
     /**
      * Default no-arg constructor
-     *
      */
-    public AudioFormat() {
+    public AudioFormat()
+    {
         super();
     }
 
     /**
      * Fully-initialising value constructor
-     *
      */
-    public AudioFormat(final UUID id, final String codecName, final String codecVendor, final String codecVersion, final String codecFamily, final int channels, final int sampleSize, final int samplingRate, final long bitRate, final boolean constantBitRate) {
+    public AudioFormat(final UUID id, final String codecName, final String codecVendor, final String codecVersion, final String codecFamily, final int channels, final int sampleSize, final int samplingRate, final long bitRate, final boolean constantBitRate)
+    {
         this.id = id;
         this.codecName = codecName;
         this.codecVendor = codecVendor;
@@ -104,7 +103,8 @@ public class AudioFormat implements Serializable
         this.constantBitRate = constantBitRate;
     }
 
-    public AudioFormat(AudioFormat af) {
+    public AudioFormat(AudioFormat af)
+    {
         this.id = af.id;
         this.codecName = af.codecName;
         this.codecVendor = af.codecVendor;
@@ -121,200 +121,190 @@ public class AudioFormat implements Serializable
     /**
      * Gets the value of the id property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible object is
+     * {@link String }
      */
-    public UUID getId() {
+    public UUID getId()
+    {
         return id;
     }
 
     /**
      * Sets the value of the id property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is
+     *              {@link String }
      */
-    public void setId(UUID value) {
+    public void setId(UUID value)
+    {
         this.id = value;
     }
 
     /**
      * Gets the value of the codecName property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible object is
+     * {@link String }
      */
-    public String getCodecName() {
+    public String getCodecName()
+    {
         return codecName;
     }
 
     /**
      * Sets the value of the codecName property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is
+     *              {@link String }
      */
-    public void setCodecName(String value) {
+    public void setCodecName(String value)
+    {
         this.codecName = value;
     }
 
     /**
      * Gets the value of the codecVendor property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible object is
+     * {@link String }
      */
-    public String getCodecVendor() {
+    public String getCodecVendor()
+    {
         return codecVendor;
     }
 
     /**
      * Sets the value of the codecVendor property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is
+     *              {@link String }
      */
-    public void setCodecVendor(String value) {
+    public void setCodecVendor(String value)
+    {
         this.codecVendor = value;
     }
 
     /**
      * Gets the value of the codecVersion property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible object is
+     * {@link String }
      */
-    public String getCodecVersion() {
+    public String getCodecVersion()
+    {
         return codecVersion;
     }
 
     /**
      * Sets the value of the codecVersion property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is
+     *              {@link String }
      */
-    public void setCodecVersion(String value) {
+    public void setCodecVersion(String value)
+    {
         this.codecVersion = value;
     }
 
     /**
      * Gets the value of the codecFamily property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible object is
+     * {@link String }
      */
-    public String getCodecFamily() {
+    public String getCodecFamily()
+    {
         return codecFamily;
     }
 
     /**
      * Sets the value of the codecFamily property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is
+     *              {@link String }
      */
-    public void setCodecFamily(String value) {
+    public void setCodecFamily(String value)
+    {
         this.codecFamily = value;
     }
 
     /**
      * Gets the value of the channels property.
-     *
      */
-    public int getChannels() {
+    public int getChannels()
+    {
         return channels;
     }
 
     /**
      * Sets the value of the channels property.
-     *
      */
-    public void setChannels(int value) {
+    public void setChannels(int value)
+    {
         this.channels = value;
     }
 
     /**
      * Gets the value of the sampleSize property.
-     *
      */
-    public int getSampleSize() {
+    public int getSampleSize()
+    {
         return sampleSize;
     }
 
     /**
      * Sets the value of the sampleSize property.
-     *
      */
-    public void setSampleSize(int value) {
+    public void setSampleSize(int value)
+    {
         this.sampleSize = value;
     }
 
     /**
      * Gets the value of the samplingRate property.
-     *
      */
-    public int getSamplingRate() {
+    public int getSamplingRate()
+    {
         return samplingRate;
     }
 
     /**
      * Sets the value of the samplingRate property.
-     *
      */
-    public void setSamplingRate(int value) {
+    public void setSamplingRate(int value)
+    {
         this.samplingRate = value;
     }
 
     /**
      * Gets the value of the bitRate property.
-     *
      */
-    public long getBitRate() {
+    public long getBitRate()
+    {
         return bitRate;
     }
 
     /**
      * Sets the value of the bitRate property.
-     *
      */
-    public void setBitRate(long value) {
+    public void setBitRate(long value)
+    {
         this.bitRate = value;
     }
 
     /**
      * Gets the value of the constantBitRate property.
-     *
      */
-    public boolean isConstantBitRate() {
+    public boolean isConstantBitRate()
+    {
         return constantBitRate;
     }
 
     /**
      * Sets the value of the constantBitRate property.
-     *
      */
-    public void setConstantBitRate(boolean value) {
+    public void setConstantBitRate(boolean value)
+    {
         this.constantBitRate = value;
     }
 
@@ -337,10 +327,9 @@ public class AudioFormat implements Serializable
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link String }
-     *
-     *
      */
-    public List<UUID> getContainerFormatIds() {
+    public List<UUID> getContainerFormatIds()
+    {
         if (containerFormatIds == null) {
             containerFormatIds = new ArrayList<UUID>();
         }
