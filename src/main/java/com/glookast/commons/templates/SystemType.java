@@ -11,27 +11,29 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  * <p>
  * <pre>
- * &lt;simpleType name="SystemType">
- *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *     &lt;enumeration value="GENERIC"/>
- *     &lt;enumeration value="AVID"/>
- *   &lt;/restriction>
- * &lt;/simpleType>
+ * &lt;simpleType name="SystemType"&gt;
+ *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
+ *     &lt;enumeration value="GENERIC"/&gt;
+ *     &lt;enumeration value="AVID"/&gt;
+ *   &lt;/restriction&gt;
+ * &lt;/simpleType&gt;
  * </pre>
- *
  */
 @XmlType(name = "SystemType", namespace = "http://templates.commons.glookast.com")
 @XmlEnum
-public enum SystemType {
+public enum SystemType
+{
 
     GENERIC,
     AVID;
 
-    public String value() {
+    public String value()
+    {
         return name();
     }
 
-    public static SystemType fromValue(String v) {
+    public static SystemType fromValue(String v)
+    {
         return valueOf(v);
     }
 

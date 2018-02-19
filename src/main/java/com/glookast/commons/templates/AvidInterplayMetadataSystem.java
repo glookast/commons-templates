@@ -1,13 +1,9 @@
 
 package com.glookast.commons.templates;
 
+import javax.xml.bind.annotation.*;
 import java.io.Serializable;
 import java.util.UUID;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlType;
 
 
 /**
@@ -16,23 +12,21 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="AvidInterplayMetadataSystem">
- *   &lt;complexContent>
- *     &lt;extension base="{http://templates.commons.glookast.com}MetadataSystem">
- *       &lt;sequence>
- *         &lt;element name="hostname" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="port" type="{http://www.w3.org/2001/XMLSchema}unsignedShort"/>
- *         &lt;element name="workgroup" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="username" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="password" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="folder" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *       &lt;/sequence>
- *     &lt;/extension>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="AvidInterplayMetadataSystem"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;extension base="{http://templates.commons.glookast.com}MetadataSystem"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="hostname" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="port" type="{http://www.w3.org/2001/XMLSchema}unsignedShort"/&gt;
+ *         &lt;element name="workgroup" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="username" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="password" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="folder" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/extension&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
- *
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "AvidInterplayMetadataSystem", namespace = "http://templates.commons.glookast.com", propOrder = {
@@ -63,17 +57,17 @@ public class AvidInterplayMetadataSystem
 
     /**
      * Default no-arg constructor
-     *
      */
-    public AvidInterplayMetadataSystem() {
+    public AvidInterplayMetadataSystem()
+    {
         super();
     }
 
     /**
      * Fully-initialising value constructor
-     *
      */
-    public AvidInterplayMetadataSystem(final UUID id, final String name, final String description, final String hostname, final int port, final String workgroup, final String username, final String password, final String folder) {
+    public AvidInterplayMetadataSystem(final UUID id, final String name, final String description, final String hostname, final int port, final String workgroup, final String username, final String password, final String folder)
+    {
         super(id, name, description);
         this.hostname = hostname;
         this.port = port;
@@ -97,136 +91,126 @@ public class AvidInterplayMetadataSystem
     /**
      * Gets the value of the hostname property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible object is
+     * {@link String }
      */
-    public String getHostname() {
+    public String getHostname()
+    {
         return hostname;
     }
 
     /**
      * Sets the value of the hostname property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is
+     *              {@link String }
      */
-    public void setHostname(String value) {
+    public void setHostname(String value)
+    {
         this.hostname = value;
     }
 
     /**
      * Gets the value of the port property.
-     *
      */
-    public int getPort() {
+    public int getPort()
+    {
         return port;
     }
 
     /**
      * Sets the value of the port property.
-     *
      */
-    public void setPort(int value) {
+    public void setPort(int value)
+    {
         this.port = value;
     }
 
     /**
      * Gets the value of the workgroup property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible object is
+     * {@link String }
      */
-    public String getWorkgroup() {
+    public String getWorkgroup()
+    {
         return workgroup;
     }
 
     /**
      * Sets the value of the workgroup property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is
+     *              {@link String }
      */
-    public void setWorkgroup(String value) {
+    public void setWorkgroup(String value)
+    {
         this.workgroup = value;
     }
 
     /**
      * Gets the value of the username property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible object is
+     * {@link String }
      */
-    public String getUsername() {
+    public String getUsername()
+    {
         return username;
     }
 
     /**
      * Sets the value of the username property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is
+     *              {@link String }
      */
-    public void setUsername(String value) {
+    public void setUsername(String value)
+    {
         this.username = value;
     }
 
     /**
      * Gets the value of the password property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible object is
+     * {@link String }
      */
-    public String getPassword() {
+    public String getPassword()
+    {
         return password;
     }
 
     /**
      * Sets the value of the password property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is
+     *              {@link String }
      */
-    public void setPassword(String value) {
+    public void setPassword(String value)
+    {
         this.password = value;
     }
 
     /**
      * Gets the value of the folder property.
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible object is
+     * {@link String }
      */
-    public String getFolder() {
+    public String getFolder()
+    {
         return folder;
     }
 
     /**
      * Sets the value of the folder property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is
+     *              {@link String }
      */
-    public void setFolder(String value) {
+    public void setFolder(String value)
+    {
         this.folder = value;
     }
 
