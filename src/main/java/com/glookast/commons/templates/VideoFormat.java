@@ -1,6 +1,7 @@
 
 package com.glookast.commons.templates;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.glookast.commons.base.Rational;
 import com.glookast.commons.xml.XmlAdapterUUID;
 
@@ -62,6 +63,7 @@ import java.util.UUID;
     "constantBitRate",
     "containerFormatIds"
 })
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, defaultImpl = VideoFormat.class)
 public class VideoFormat implements Serializable
 {
 

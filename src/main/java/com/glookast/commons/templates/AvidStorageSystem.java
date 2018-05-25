@@ -1,6 +1,8 @@
 
 package com.glookast.commons.templates;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlSeeAlso;
@@ -29,6 +31,11 @@ import java.util.UUID;
     AvidNexisStorageSystem.class,
     AvidOtherStorageSystem.class,
     AvidMediaNetworkStorageSystem.class
+})
+@JsonSubTypes({
+    @JsonSubTypes.Type(value = AvidOtherStorageSystem.class, name = "AvidOtherStorageSystem"),
+    @JsonSubTypes.Type(value = AvidMediaNetworkStorageSystem.class, name = "AvidMediaNetworkStorageSystem"),
+    @JsonSubTypes.Type(value = AvidNexisStorageSystem.class, name = "AvidNexisStorageSystem")
 })
 public abstract class AvidStorageSystem
     extends StorageSystem
