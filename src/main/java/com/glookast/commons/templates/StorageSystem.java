@@ -1,6 +1,8 @@
 
 package com.glookast.commons.templates;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.glookast.commons.xml.XmlAdapterUUID;
 
 import javax.xml.bind.annotation.*;
@@ -37,6 +39,11 @@ import java.util.UUID;
 @XmlSeeAlso({
     GenericStorageSystem.class,
     AvidStorageSystem.class
+})
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME)
+@JsonSubTypes({
+    @JsonSubTypes.Type(value = GenericStorageSystem.class, name = "GenericStorageSystem"),
+    @JsonSubTypes.Type(value = AvidStorageSystem.class, name = "AvidStorageSystem"),
 })
 public abstract class StorageSystem implements Serializable
 {

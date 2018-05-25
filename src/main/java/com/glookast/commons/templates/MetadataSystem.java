@@ -1,6 +1,8 @@
 
 package com.glookast.commons.templates;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.glookast.commons.xml.XmlAdapterUUID;
 
 import javax.xml.bind.annotation.*;
@@ -38,6 +40,12 @@ import java.util.UUID;
     AvidAafExportMetadataSystem.class,
     XmlExportMetadataSystem.class,
     AvidInterplayMetadataSystem.class
+})
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME)
+@JsonSubTypes({
+    @JsonSubTypes.Type(value = AvidAafExportMetadataSystem.class, name = "AvidAafExportMetadataSystem"),
+    @JsonSubTypes.Type(value = XmlExportMetadataSystem.class, name = "XmlExportMetadataSystem"),
+    @JsonSubTypes.Type(value = AvidInterplayMetadataSystem.class, name = "AvidInterplayMetadataSystem")
 })
 public abstract class MetadataSystem implements Serializable
 {

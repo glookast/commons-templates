@@ -1,6 +1,7 @@
 
 package com.glookast.commons.templates;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.glookast.commons.xml.XmlAdapterUUID;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -41,6 +42,7 @@ import java.util.UUID;
     "description",
     "transformProfileIds"
 })
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, defaultImpl = Template.class)
 public class Template implements Serializable
 {
 
