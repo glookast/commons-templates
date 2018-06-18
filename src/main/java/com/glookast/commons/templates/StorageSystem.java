@@ -8,6 +8,7 @@ import com.glookast.commons.xml.XmlAdapterUUID;
 import javax.xml.bind.annotation.*;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.io.Serializable;
+import java.util.Objects;
 import java.util.UUID;
 
 
@@ -145,6 +146,28 @@ public abstract class StorageSystem implements Serializable
     public void setDescription(String value)
     {
         this.description = value;
+    }
+
+    @Override
+    public boolean equals(Object o)
+    {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        StorageSystem that = (StorageSystem) o;
+        return Objects.equals(getId(), that.getId()) &&
+               Objects.equals(getName(), that.getName()) &&
+               Objects.equals(getDescription(), that.getDescription());
+    }
+
+    @Override
+    public int hashCode()
+    {
+
+        return Objects.hash(getId(), getName(), getDescription());
     }
 
     @Override

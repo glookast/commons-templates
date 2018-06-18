@@ -6,6 +6,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import java.io.Serializable;
+import java.util.Objects;
 import java.util.UUID;
 
 
@@ -109,6 +110,30 @@ public class AvidNexisStorageSystem
     public void setWorkspace(String value)
     {
         this.workspace = value;
+    }
+
+    @Override
+    public boolean equals(Object o)
+    {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        if (!super.equals(o)) {
+            return false;
+        }
+        AvidNexisStorageSystem that = (AvidNexisStorageSystem) o;
+        return Objects.equals(getSystemDirector(), that.getSystemDirector()) &&
+               Objects.equals(getWorkspace(), that.getWorkspace());
+    }
+
+    @Override
+    public int hashCode()
+    {
+
+        return Objects.hash(super.hashCode(), getSystemDirector(), getWorkspace());
     }
 
     @Override

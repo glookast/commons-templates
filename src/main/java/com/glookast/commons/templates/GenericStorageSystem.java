@@ -6,6 +6,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import java.io.Serializable;
+import java.util.Objects;
 import java.util.UUID;
 
 
@@ -81,6 +82,29 @@ public class GenericStorageSystem
     public void setLocation(String value)
     {
         this.location = value;
+    }
+
+    @Override
+    public boolean equals(Object o)
+    {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        if (!super.equals(o)) {
+            return false;
+        }
+        GenericStorageSystem that = (GenericStorageSystem) o;
+        return Objects.equals(getLocation(), that.getLocation());
+    }
+
+    @Override
+    public int hashCode()
+    {
+
+        return Objects.hash(super.hashCode(), getLocation());
     }
 
     @Override

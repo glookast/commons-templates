@@ -12,6 +12,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 
@@ -336,6 +337,36 @@ public class AudioFormat implements Serializable
             containerFormatIds = new ArrayList<UUID>();
         }
         return this.containerFormatIds;
+    }
+
+    @Override
+    public boolean equals(Object o)
+    {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        AudioFormat that = (AudioFormat) o;
+        return getChannels() == that.getChannels() &&
+               getSampleSize() == that.getSampleSize() &&
+               getSamplingRate() == that.getSamplingRate() &&
+               getBitRate() == that.getBitRate() &&
+               isConstantBitRate() == that.isConstantBitRate() &&
+               Objects.equals(getId(), that.getId()) &&
+               Objects.equals(getCodecName(), that.getCodecName()) &&
+               Objects.equals(getCodecVendor(), that.getCodecVendor()) &&
+               Objects.equals(getCodecVersion(), that.getCodecVersion()) &&
+               Objects.equals(getCodecFamily(), that.getCodecFamily()) &&
+               Objects.equals(getContainerFormatIds(), that.getContainerFormatIds());
+    }
+
+    @Override
+    public int hashCode()
+    {
+
+        return Objects.hash(getId(), getCodecName(), getCodecVendor(), getCodecVersion(), getCodecFamily(), getChannels(), getSampleSize(), getSamplingRate(), getBitRate(), isConstantBitRate(), getContainerFormatIds());
     }
 
     @Override

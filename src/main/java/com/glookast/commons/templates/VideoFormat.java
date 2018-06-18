@@ -13,6 +13,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 
@@ -414,6 +415,39 @@ public class VideoFormat implements Serializable
             containerFormatIds = new ArrayList<UUID>();
         }
         return this.containerFormatIds;
+    }
+
+    @Override
+    public boolean equals(Object o)
+    {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        VideoFormat that = (VideoFormat) o;
+        return getDisplayWidth() == that.getDisplayWidth() &&
+               getDisplayHeight() == that.getDisplayHeight() &&
+               isInterlaced() == that.isInterlaced() &&
+               isTopFieldFirst() == that.isTopFieldFirst() &&
+               getBitRate() == that.getBitRate() &&
+               isConstantBitRate() == that.isConstantBitRate() &&
+               Objects.equals(getId(), that.getId()) &&
+               Objects.equals(getCodecName(), that.getCodecName()) &&
+               Objects.equals(getCodecVendor(), that.getCodecVendor()) &&
+               Objects.equals(getCodecVersion(), that.getCodecVersion()) &&
+               Objects.equals(getCodecFamily(), that.getCodecFamily()) &&
+               Objects.equals(getFrameRate(), that.getFrameRate()) &&
+               Objects.equals(getAspectRatio(), that.getAspectRatio()) &&
+               Objects.equals(getContainerFormatIds(), that.getContainerFormatIds());
+    }
+
+    @Override
+    public int hashCode()
+    {
+
+        return Objects.hash(getId(), getCodecName(), getCodecVendor(), getCodecVersion(), getCodecFamily(), getDisplayWidth(), getDisplayHeight(), getFrameRate(), isInterlaced(), isTopFieldFirst(), getAspectRatio(), getBitRate(), isConstantBitRate(), getContainerFormatIds());
     }
 
     @Override
