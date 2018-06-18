@@ -130,10 +130,10 @@ public class VideoFormat implements Serializable
         this.codecFamily = vf.codecFamily;
         this.displayWidth = vf.displayWidth;
         this.displayHeight = vf.displayHeight;
-        this.frameRate = vf.frameRate;
+        this.frameRate = vf.frameRate != null ? new Rational(vf.frameRate) : null;
         this.interlaced = vf.interlaced;
         this.topFieldFirst = vf.topFieldFirst;
-        this.aspectRatio = vf.aspectRatio;
+        this.aspectRatio = vf.aspectRatio != null ? new Rational(vf.aspectRatio) : null;
         this.bitRate = vf.bitRate;
         this.constantBitRate = vf.constantBitRate;
         this.containerFormatIds = new ArrayList<>(vf.getContainerFormatIds());
