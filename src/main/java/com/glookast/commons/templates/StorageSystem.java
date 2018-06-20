@@ -1,6 +1,7 @@
 
 package com.glookast.commons.templates;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.glookast.commons.xml.XmlAdapterUUID;
@@ -41,6 +42,7 @@ import java.util.UUID;
     GenericStorageSystem.class,
     AvidStorageSystem.class
 })
+@JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME)
 @JsonSubTypes({
     @JsonSubTypes.Type(value = GenericStorageSystem.class, name = "GenericStorageSystem"),

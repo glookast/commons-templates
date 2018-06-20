@@ -1,6 +1,9 @@
 
 package com.glookast.commons.templates;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -31,6 +34,8 @@ import java.util.UUID;
 @XmlType(name = "XmlExportMetadataSystem", namespace = "http://templates.commons.glookast.com", propOrder = {
     "location"
 })
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, defaultImpl = XmlExportMetadataSystem.class)
 public class XmlExportMetadataSystem
     extends MetadataSystem
     implements Serializable

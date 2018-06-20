@@ -1,6 +1,8 @@
 
 package com.glookast.commons.templates;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlType;
 
@@ -23,8 +25,9 @@ import javax.xml.bind.annotation.XmlType;
 @XmlEnum
 public enum SystemType
 {
-
+    @JsonProperty("GENERIC")
     GENERIC,
+    @JsonProperty("AVID")
     AVID;
 
     public String value()

@@ -1,6 +1,9 @@
 
 package com.glookast.commons.templates;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+
 import javax.xml.bind.annotation.*;
 import java.io.Serializable;
 import java.util.Objects;
@@ -38,6 +41,8 @@ import java.util.UUID;
     "password",
     "folder"
 })
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, defaultImpl = AvidInterplayMetadataSystem.class)
 public class AvidInterplayMetadataSystem
     extends MetadataSystem
     implements Serializable

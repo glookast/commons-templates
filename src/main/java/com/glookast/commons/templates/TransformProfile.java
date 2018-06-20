@@ -1,6 +1,7 @@
 
 package com.glookast.commons.templates;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.glookast.commons.xml.XmlAdapterUUID;
 
@@ -49,6 +50,7 @@ import java.util.UUID;
     "containerFormatId",
     "outputSystemIds"
 })
+@JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, defaultImpl = TransformProfile.class)
 public class TransformProfile implements Serializable
 {

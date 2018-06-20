@@ -1,6 +1,9 @@
 
 package com.glookast.commons.templates;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -33,6 +36,8 @@ import java.util.UUID;
     "systemDirector",
     "workspace"
 })
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, defaultImpl = AvidNexisStorageSystem.class)
 public class AvidNexisStorageSystem
     extends AvidStorageSystem
     implements Serializable

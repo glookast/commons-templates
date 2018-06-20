@@ -1,6 +1,7 @@
 
 package com.glookast.commons.templates;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.glookast.commons.xml.XmlAdapterUUID;
 
@@ -38,6 +39,7 @@ import java.util.UUID;
     "name",
     "systemTypes"
 })
+@JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, defaultImpl = ContainerFormat.class)
 public class ContainerFormat implements Serializable
 {
