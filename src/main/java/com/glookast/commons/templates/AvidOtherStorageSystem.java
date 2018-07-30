@@ -1,11 +1,15 @@
 
 package com.glookast.commons.templates;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import java.io.Serializable;
+import java.util.Objects;
 import java.util.UUID;
 
 
@@ -30,6 +34,8 @@ import java.util.UUID;
 @XmlType(name = "AvidOtherStorageSystem", namespace = "http://templates.commons.glookast.com", propOrder = {
     "location"
 })
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, defaultImpl = AvidOtherStorageSystem.class)
 public class AvidOtherStorageSystem
     extends AvidStorageSystem
     implements Serializable
@@ -81,6 +87,29 @@ public class AvidOtherStorageSystem
     public void setLocation(String value)
     {
         this.location = value;
+    }
+
+    @Override
+    public boolean equals(Object o)
+    {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        if (!super.equals(o)) {
+            return false;
+        }
+        AvidOtherStorageSystem that = (AvidOtherStorageSystem) o;
+        return Objects.equals(getLocation(), that.getLocation());
+    }
+
+    @Override
+    public int hashCode()
+    {
+
+        return Objects.hash(super.hashCode(), getLocation());
     }
 
     @Override

@@ -1,6 +1,7 @@
 
 package com.glookast.commons.templates;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.glookast.commons.xml.XmlAdapterUUID;
@@ -8,6 +9,7 @@ import com.glookast.commons.xml.XmlAdapterUUID;
 import javax.xml.bind.annotation.*;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.io.Serializable;
+import java.util.Objects;
 import java.util.UUID;
 
 
@@ -40,6 +42,7 @@ import java.util.UUID;
     GenericStorageSystem.class,
     AvidStorageSystem.class
 })
+@JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME)
 @JsonSubTypes({
     @JsonSubTypes.Type(value = GenericStorageSystem.class, name = "GenericStorageSystem"),
@@ -145,6 +148,28 @@ public abstract class StorageSystem implements Serializable
     public void setDescription(String value)
     {
         this.description = value;
+    }
+
+    @Override
+    public boolean equals(Object o)
+    {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        StorageSystem that = (StorageSystem) o;
+        return Objects.equals(getId(), that.getId()) &&
+               Objects.equals(getName(), that.getName()) &&
+               Objects.equals(getDescription(), that.getDescription());
+    }
+
+    @Override
+    public int hashCode()
+    {
+
+        return Objects.hash(getId(), getName(), getDescription());
     }
 
     @Override

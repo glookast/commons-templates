@@ -1,11 +1,15 @@
 
 package com.glookast.commons.templates;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import java.io.Serializable;
+import java.util.Objects;
 import java.util.UUID;
 
 
@@ -32,6 +36,8 @@ import java.util.UUID;
     "systemDirector",
     "workspace"
 })
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, defaultImpl = AvidNexisStorageSystem.class)
 public class AvidNexisStorageSystem
     extends AvidStorageSystem
     implements Serializable
@@ -109,6 +115,30 @@ public class AvidNexisStorageSystem
     public void setWorkspace(String value)
     {
         this.workspace = value;
+    }
+
+    @Override
+    public boolean equals(Object o)
+    {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        if (!super.equals(o)) {
+            return false;
+        }
+        AvidNexisStorageSystem that = (AvidNexisStorageSystem) o;
+        return Objects.equals(getSystemDirector(), that.getSystemDirector()) &&
+               Objects.equals(getWorkspace(), that.getWorkspace());
+    }
+
+    @Override
+    public int hashCode()
+    {
+
+        return Objects.hash(super.hashCode(), getSystemDirector(), getWorkspace());
     }
 
     @Override

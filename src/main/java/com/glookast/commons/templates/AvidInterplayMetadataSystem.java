@@ -1,8 +1,12 @@
 
 package com.glookast.commons.templates;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+
 import javax.xml.bind.annotation.*;
 import java.io.Serializable;
+import java.util.Objects;
 import java.util.UUID;
 
 
@@ -37,6 +41,8 @@ import java.util.UUID;
     "password",
     "folder"
 })
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, defaultImpl = AvidInterplayMetadataSystem.class)
 public class AvidInterplayMetadataSystem
     extends MetadataSystem
     implements Serializable
@@ -212,6 +218,34 @@ public class AvidInterplayMetadataSystem
     public void setFolder(String value)
     {
         this.folder = value;
+    }
+
+    @Override
+    public boolean equals(Object o)
+    {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        if (!super.equals(o)) {
+            return false;
+        }
+        AvidInterplayMetadataSystem that = (AvidInterplayMetadataSystem) o;
+        return getPort() == that.getPort() &&
+               Objects.equals(getHostname(), that.getHostname()) &&
+               Objects.equals(getWorkgroup(), that.getWorkgroup()) &&
+               Objects.equals(getUsername(), that.getUsername()) &&
+               Objects.equals(getPassword(), that.getPassword()) &&
+               Objects.equals(getFolder(), that.getFolder());
+    }
+
+    @Override
+    public int hashCode()
+    {
+
+        return Objects.hash(super.hashCode(), getHostname(), getPort(), getWorkgroup(), getUsername(), getPassword(), getFolder());
     }
 
     @Override

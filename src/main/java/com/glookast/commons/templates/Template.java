@@ -1,6 +1,7 @@
 
 package com.glookast.commons.templates;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.glookast.commons.xml.XmlAdapterUUID;
 
@@ -12,6 +13,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 
@@ -42,6 +44,7 @@ import java.util.UUID;
     "description",
     "transformProfileIds"
 })
+@JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, defaultImpl = Template.class)
 public class Template implements Serializable
 {
@@ -175,6 +178,29 @@ public class Template implements Serializable
             transformProfileIds = new ArrayList<UUID>();
         }
         return this.transformProfileIds;
+    }
+
+    @Override
+    public boolean equals(Object o)
+    {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Template template = (Template) o;
+        return Objects.equals(getId(), template.getId()) &&
+               Objects.equals(getName(), template.getName()) &&
+               Objects.equals(getDescription(), template.getDescription()) &&
+               Objects.equals(getTransformProfileIds(), template.getTransformProfileIds());
+    }
+
+    @Override
+    public int hashCode()
+    {
+
+        return Objects.hash(getId(), getName(), getDescription(), getTransformProfileIds());
     }
 
     @Override

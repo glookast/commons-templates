@@ -1,6 +1,7 @@
 
 package com.glookast.commons.templates;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.glookast.commons.xml.XmlAdapterUUID;
 
@@ -9,6 +10,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 
@@ -37,6 +39,7 @@ import java.util.UUID;
     "name",
     "systemTypes"
 })
+@JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, defaultImpl = ContainerFormat.class)
 public class ContainerFormat implements Serializable
 {
@@ -143,6 +146,28 @@ public class ContainerFormat implements Serializable
             systemTypes = new ArrayList<SystemType>();
         }
         return this.systemTypes;
+    }
+
+    @Override
+    public boolean equals(Object o)
+    {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ContainerFormat that = (ContainerFormat) o;
+        return Objects.equals(getId(), that.getId()) &&
+               Objects.equals(getName(), that.getName()) &&
+               Objects.equals(getSystemTypes(), that.getSystemTypes());
+    }
+
+    @Override
+    public int hashCode()
+    {
+
+        return Objects.hash(getId(), getName(), getSystemTypes());
     }
 
     @Override
