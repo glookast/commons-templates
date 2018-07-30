@@ -3,7 +3,7 @@ apply plugin: "maven"
 apply plugin: "signing"
 
 group = "com.glookast.commons"
-version = "1.3.3-SNAPSHOT"
+version = "2.0.0-SNAPSHOT"
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -32,7 +32,7 @@ repositories {
 dependencies {
     compile 'com.fasterxml.jackson.core:jackson-annotations:2.9.6'
 
-    compile 'com.glookast.commons:commons-base:1.2.4'
+    compile 'com.glookast.commons:commons-base:2.0.0-SNAPSHOT'
     compile 'com.glookast.commons:commons-xml:1.0.0'
 }
 
