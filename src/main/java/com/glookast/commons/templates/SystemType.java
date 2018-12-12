@@ -17,6 +17,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
  *     &lt;enumeration value="GENERIC"/&gt;
  *     &lt;enumeration value="AVID"/&gt;
+ *     &lt;enumeration value="FTP"/&gt;
  *   &lt;/restriction&gt;
  * &lt;/simpleType&gt;
  * </pre>
@@ -28,7 +29,9 @@ public enum SystemType
     @JsonProperty("GENERIC")
     GENERIC,
     @JsonProperty("AVID")
-    AVID;
+    AVID,
+    @JsonProperty("FTP")
+    FTP;
 
     public String value()
     {

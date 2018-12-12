@@ -13,6 +13,8 @@ import javax.xml.bind.annotation.XmlType;
  * <pre>
  * &lt;simpleType name="TestResultProperty"&gt;
  *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
+ *     &lt;enumeration value="STORAGE_CONNECTION_OK"/&gt;
+ *     &lt;enumeration value="STORAGE_AUTHENTICATION_OK"/&gt;
  *     &lt;enumeration value="STORAGE_PATH_EXISTS"/&gt;
  *     &lt;enumeration value="STORAGE_PATH_IS_FOLDER"/&gt;
  *     &lt;enumeration value="STORAGE_PATH_CAN_READ"/&gt;
@@ -29,7 +31,8 @@ import javax.xml.bind.annotation.XmlType;
 @XmlEnum
 public enum TestResultProperty
 {
-
+    STORAGE_CONNECTION_OK,
+    STORAGE_AUTHENTICATION_OK,
     STORAGE_PATH_EXISTS,
     STORAGE_PATH_IS_FOLDER,
     STORAGE_PATH_CAN_READ,
