@@ -40,13 +40,15 @@ import java.util.UUID;
 })
 @XmlSeeAlso({
     GenericStorageSystem.class,
-    AvidStorageSystem.class
+    AvidStorageSystem.class,
+    FtpStorageSystem.class
 })
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME)
 @JsonSubTypes({
     @JsonSubTypes.Type(value = GenericStorageSystem.class, name = "GenericStorageSystem"),
     @JsonSubTypes.Type(value = AvidStorageSystem.class, name = "AvidStorageSystem"),
+    @JsonSubTypes.Type(value = FtpStorageSystem.class, name = "FtpStorageSystem"),
 })
 public abstract class StorageSystem implements Serializable
 {
