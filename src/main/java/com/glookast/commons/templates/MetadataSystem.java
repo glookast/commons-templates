@@ -40,15 +40,17 @@ import java.util.UUID;
 })
 @XmlSeeAlso({
     AvidAafExportMetadataSystem.class,
-    XmlExportMetadataSystem.class,
-    AvidInterplayMetadataSystem.class
+    AvidMamMetadataSystem.class,
+    AvidPamMetadataSystem.class,
+    XmlExportMetadataSystem.class
 })
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME)
 @JsonSubTypes({
     @JsonSubTypes.Type(value = AvidAafExportMetadataSystem.class, name = "AvidAafExportMetadataSystem"),
-    @JsonSubTypes.Type(value = XmlExportMetadataSystem.class, name = "XmlExportMetadataSystem"),
-    @JsonSubTypes.Type(value = AvidInterplayMetadataSystem.class, name = "AvidInterplayMetadataSystem")
+    @JsonSubTypes.Type(value = AvidMamMetadataSystem.class, name = "AvidMamMetadataSystem"),
+    @JsonSubTypes.Type(value = AvidPamMetadataSystem.class, name = "AvidPamMetadataSystem"),
+    @JsonSubTypes.Type(value = XmlExportMetadataSystem.class, name = "XmlExportMetadataSystem")
 })
 public abstract class MetadataSystem implements Serializable
 {
@@ -170,7 +172,6 @@ public abstract class MetadataSystem implements Serializable
     @Override
     public int hashCode()
     {
-
         return Objects.hash(getId(), getName(), getDescription());
     }
 
