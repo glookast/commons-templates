@@ -1,4 +1,3 @@
-
 package com.glookast.commons.templates;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -19,17 +18,17 @@ import java.util.UUID;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType name="MetadataSystem"&gt;
- *   &lt;complexContent&gt;
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *       &lt;sequence&gt;
- *         &lt;element name="id" type="{http://base.commons.glookast.com}UUID"/&gt;
- *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="description" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *       &lt;/sequence&gt;
- *     &lt;/restriction&gt;
- *   &lt;/complexContent&gt;
- * &lt;/complexType&gt;
+ * <complexType name="MetadataSystem">
+ *   <complexContent>
+ *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *       <sequence>
+ *         <element name="id" type="{http://base.commons.glookast.com}UUID"/>
+ *         <element name="name" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         <element name="description" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *       </sequence>
+ *     </restriction>
+ *   </complexContent>
+ * </complexType>
  * </pre>
  */
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -42,7 +41,8 @@ import java.util.UUID;
     AvidAafExportMetadataSystem.class,
     AvidMamMetadataSystem.class,
     AvidPamMetadataSystem.class,
-    XmlExportMetadataSystem.class
+    XmlExportMetadataSystem.class,
+    ArvatoEditMateMetadataSystem.class
 })
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME)
@@ -50,7 +50,8 @@ import java.util.UUID;
     @JsonSubTypes.Type(value = AvidAafExportMetadataSystem.class, name = "AvidAafExportMetadataSystem"),
     @JsonSubTypes.Type(value = AvidMamMetadataSystem.class, name = "AvidMamMetadataSystem"),
     @JsonSubTypes.Type(value = AvidPamMetadataSystem.class, name = "AvidPamMetadataSystem"),
-    @JsonSubTypes.Type(value = XmlExportMetadataSystem.class, name = "XmlExportMetadataSystem")
+    @JsonSubTypes.Type(value = XmlExportMetadataSystem.class, name = "XmlExportMetadataSystem"),
+    @JsonSubTypes.Type(value = ArvatoEditMateMetadataSystem.class, name = "ArvatoEditMateMetadataSystem")
 })
 public abstract class MetadataSystem implements Serializable
 {
