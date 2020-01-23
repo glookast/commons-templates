@@ -21,7 +21,7 @@ class ArvatoEditMateMetadataSystemTest {
         Assertions.assertNotNull(ms);
 
     }
-
+    
     @Test
     void toJSON() throws IOException {
 
@@ -29,6 +29,9 @@ class ArvatoEditMateMetadataSystemTest {
         fieldsMap.put("glookast", "editmate");
 
         ArvatoEditMateMetadataSystem ms = ArvatoEditMateMetadataSystem.builder()
+            .id(UUID.randomUUID())
+            .name("name")
+            .description("description")
             .hostname("hostname")
             .port(1234)
             .ssl(true)
@@ -43,10 +46,6 @@ class ArvatoEditMateMetadataSystemTest {
             .metadataFieldsMap(fieldsMap)
             .build();
 
-        ms.setId(UUID.randomUUID());
-        ms.setName("name");
-        ms.setDescription("description");
-
         ObjectMapper mapper = new ObjectMapper();
 
         String json = mapper.writeValueAsString(ms);
@@ -59,7 +58,7 @@ class ArvatoEditMateMetadataSystemTest {
 
         assertNotNull(parsedMS);
         assertEquals(ms, parsedMS);
-
+        
     }
 
     @Test

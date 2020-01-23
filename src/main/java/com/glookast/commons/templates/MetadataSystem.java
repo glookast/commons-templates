@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.glookast.commons.xml.XmlAdapterUUID;
+import lombok.experimental.SuperBuilder;
 
 import javax.xml.bind.annotation.*;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
@@ -31,6 +32,7 @@ import java.util.UUID;
  * </complexType>
  * </pre>
  */
+@SuperBuilder(toBuilder = true)
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "MetadataSystem", namespace = "http://templates.commons.glookast.com", propOrder = {
     "id",

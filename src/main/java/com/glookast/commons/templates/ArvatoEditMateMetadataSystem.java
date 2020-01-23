@@ -3,6 +3,7 @@ package com.glookast.commons.templates;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import javax.xml.bind.annotation.*;
 import java.io.Serializable;
@@ -41,7 +42,7 @@ import java.util.Map;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder(toBuilder = true)
+@SuperBuilder(toBuilder = true)
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "AvidMamMetadataSystem", propOrder = {
     "hostname",
@@ -60,8 +61,7 @@ import java.util.Map;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, defaultImpl = ArvatoEditMateMetadataSystem.class)
 public class ArvatoEditMateMetadataSystem
-    extends MetadataSystem
-    implements Serializable {
+    extends MetadataSystem {
 
     @XmlElement(required = true)
     protected String hostname;

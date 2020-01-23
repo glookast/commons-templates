@@ -3,6 +3,7 @@ package com.glookast.commons.templates;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -32,7 +33,7 @@ import java.io.Serializable;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder(toBuilder = true)
+@SuperBuilder(toBuilder = true)
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "GenericStorageSystem", namespace = "http://templates.commons.glookast.com", propOrder = {
     "location"
@@ -40,8 +41,7 @@ import java.io.Serializable;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, defaultImpl = ArvatoEditMateGenericStorageSystem.class)
 public class ArvatoEditMateGenericStorageSystem
-    extends StorageSystem
-    implements Serializable {
+    extends StorageSystem {
 
     @XmlElement(required = true)
     protected String location;

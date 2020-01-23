@@ -29,13 +29,12 @@ class EditMateGenericStorageSystemTest {
         fieldsMap.put("glookast", "editmate");
 
         ArvatoEditMateGenericStorageSystem ss = ArvatoEditMateGenericStorageSystem.builder()
+            .id(UUID.randomUUID())
+            .name("name")
+            .description("description")
             .location("C:\\location\\")
             .VPMSStorageId("VPMS storage id")
             .build();
-
-        ss.setId(UUID.randomUUID());
-        ss.setName("name");
-        ss.setDescription("description");
 
         ObjectMapper mapper = new ObjectMapper();
 
