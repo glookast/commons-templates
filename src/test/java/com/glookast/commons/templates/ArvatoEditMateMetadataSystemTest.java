@@ -21,7 +21,7 @@ class ArvatoEditMateMetadataSystemTest {
         Assertions.assertNotNull(ms);
 
     }
-    
+
     @Test
     void toJSON() throws IOException {
 
@@ -58,7 +58,7 @@ class ArvatoEditMateMetadataSystemTest {
 
         assertNotNull(parsedMS);
         assertEquals(ms, parsedMS);
-        
+
     }
 
     @Test
@@ -115,4 +115,60 @@ class ArvatoEditMateMetadataSystemTest {
 
     }
 
+    @Test
+    void parseMetadataFieldsMap() {
+
+        // null json
+        Map<String, String> map = ArvatoEditMateMetadataSystem.parseMetadataFieldsMap(null);
+
+        Assertions.assertNotNull(map);
+        Assertions.assertEquals(0, map.size());
+
+        // empty string
+        map = ArvatoEditMateMetadataSystem.parseMetadataFieldsMap("");
+
+        Assertions.assertNotNull(map);
+        Assertions.assertEquals(0, map.size());
+
+        // invalid string
+        map = ArvatoEditMateMetadataSystem.parseMetadataFieldsMap("{{{");
+
+        Assertions.assertNotNull(map);
+        Assertions.assertEquals(0, map.size());
+
+        // empty map
+        String jsonMap =
+            "{\n" +
+                "\"\": \"\"\n" +
+                "}\n";
+        map = ArvatoEditMateMetadataSystem.parseMetadataFieldsMap(jsonMap);
+
+        Assertions.assertNotNull(map);
+        Assertions.assertEquals(0, map.size());
+
+        // valid map with single entry
+        jsonMap =
+            "{\n" +
+                "\"valueA\": \"valueB\"\n" +
+                "}\n";
+        map = ArvatoEditMateMetadataSystem.parseMetadataFieldsMap(jsonMap);
+
+        Assertions.assertNotNull(map);
+        Assertions.assertEquals(1, map.size());
+        Assertions.assertEquals(map.get("valueA"), "valueB");
+
+        // valid map with multiple entries
+        jsonMap =
+            "{\n" +
+                "\"valueA\": \"valueB\",\n" +
+                "\"valueC\": \"valueD\"\n" +
+                "}\n";
+        map = ArvatoEditMateMetadataSystem.parseMetadataFieldsMap(jsonMap);
+
+        Assertions.assertNotNull(map);
+        Assertions.assertEquals(2, map.size());
+        Assertions.assertEquals(map.get("valueA"), "valueB");
+        Assertions.assertEquals(map.get("valueC"), "valueD");
+
+    }
 }

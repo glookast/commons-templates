@@ -2,12 +2,18 @@ package com.glookast.commons.templates;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import lombok.*;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 import javax.xml.bind.annotation.*;
-import java.io.Serializable;
+import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Logger;
 
 
 /**
@@ -85,5 +91,23 @@ public class ArvatoEditMateMetadataSystem
     @XmlElement(required = true)
     protected String restrictionColorName;
     protected Map<String, String> metadataFieldsMap;
+
+    public static Map<String, String> parseMetadataFieldsMap(String json) {
+
+        if (json != null) {
+            ObjectMapper mapper = new ObjectMapper();
+            try {
+                Map<String, String> parsedMap = mapper.reader().forType(HashMap.class).readValue(json);
+                // exclude empty keys
+                parsedMap.keySet().removeIf(String::isEmpty);
+                return parsedMap;
+            } catch (IOException ex) {
+                Logger.getLogger(ArvatoEditMateMetadataSystem.class.getName()).warning(ex.getMessage());
+            }
+        }
+
+        return new HashMap<>();
+
+    }
 
 }
