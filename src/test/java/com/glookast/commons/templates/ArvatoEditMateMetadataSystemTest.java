@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -23,6 +25,9 @@ class ArvatoEditMateMetadataSystemTest {
     @Test
     void toJSON() throws IOException {
 
+        final Map<String, String> fieldsMap = new HashMap<>();
+        fieldsMap.put("glookast", "editmate");
+
         ArvatoEditMateMetadataSystem ms = ArvatoEditMateMetadataSystem.builder()
             .hostname("hostname")
             .port(1234)
@@ -35,6 +40,7 @@ class ArvatoEditMateMetadataSystemTest {
             .restrictionTypeName("restriction_type_name")
             .restrictionNoteName("restriction_note_name")
             .restrictionColorName("restriction_color_name")
+            .metadataFieldsMap(fieldsMap)
             .build();
 
         ms.setId(UUID.randomUUID());
@@ -74,8 +80,12 @@ class ArvatoEditMateMetadataSystemTest {
             "    \"locatorColorName\": \"locator_color_name\",\n" +
             "    \"restrictionTypeName\": \"restriction_type_name\",\n" +
             "    \"restrictionNoteName\": \"restriction_note_name\",\n" +
-            "    \"restrictionColorName\": \"restriction_color_name\"\n" +
+            "    \"restrictionColorName\": \"restriction_color_name\",\n" +
+            "    \"metadataFieldsMap\": {\n" +
+            "      \"glookast\": \"editmate\"\n" +
+            "  }\n" +
             "}";
+
 
         ObjectMapper mapper = new ObjectMapper();
 
@@ -99,6 +109,10 @@ class ArvatoEditMateMetadataSystemTest {
         Assertions.assertEquals(parsedMS.getRestrictionNoteName(), "restriction_note_name");
         Assertions.assertEquals(parsedMS.getRestrictionColorName(), "restriction_color_name");
 
+        final Map<String, String> fieldsMap = new HashMap<>();
+        fieldsMap.put("glookast", "editmate");
+
+        Assertions.assertEquals(parsedMS.getMetadataFieldsMap(), fieldsMap);
 
     }
 

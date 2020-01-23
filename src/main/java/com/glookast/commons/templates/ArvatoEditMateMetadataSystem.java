@@ -6,6 +6,7 @@ import lombok.*;
 
 import javax.xml.bind.annotation.*;
 import java.io.Serializable;
+import java.util.Map;
 
 
 /**
@@ -29,6 +30,7 @@ import java.io.Serializable;
  *         <element name="restrictionTypeName" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         <element name="restrictionNoteName" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         <element name="restrictionColorName" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         <element name="metadataFieldsMap" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
@@ -52,7 +54,8 @@ import java.io.Serializable;
     "locatorColorName",
     "restrictionTypeName",
     "restrictionNoteName",
-    "restrictionColorName"
+    "restrictionColorName",
+    "metadataFieldsMap"
 })
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, defaultImpl = ArvatoEditMateMetadataSystem.class)
@@ -81,5 +84,6 @@ public class ArvatoEditMateMetadataSystem
     protected String restrictionNoteName;
     @XmlElement(required = true)
     protected String restrictionColorName;
+    protected Map<String, String> metadataFieldsMap;
 
 }
