@@ -17,7 +17,7 @@ class EditMateGenericStorageSystemTest {
     @Test
     public void emptyMetadataSystem() {
 
-        final EditMateGenericStorageSystem ss = new EditMateGenericStorageSystem();
+        final ArvatoEditMateGenericStorageSystem ss = new ArvatoEditMateGenericStorageSystem();
         Assertions.assertNotNull(ss);
 
     }
@@ -28,7 +28,7 @@ class EditMateGenericStorageSystemTest {
         final Map<String, String> fieldsMap = new HashMap<>();
         fieldsMap.put("glookast", "editmate");
 
-        EditMateGenericStorageSystem ss = EditMateGenericStorageSystem.builder()
+        ArvatoEditMateGenericStorageSystem ss = ArvatoEditMateGenericStorageSystem.builder()
             .location("C:\\location\\")
             .VPMSStorageId("VPMS storage id")
             .build();
@@ -44,8 +44,8 @@ class EditMateGenericStorageSystemTest {
         assertNotNull(json);
 
         // parse it and check it again
-        EditMateGenericStorageSystem parsedMS = mapper.reader()
-            .forType(EditMateGenericStorageSystem.class).readValue(json);
+        ArvatoEditMateGenericStorageSystem parsedMS = mapper.reader()
+            .forType(ArvatoEditMateGenericStorageSystem.class).readValue(json);
 
         assertNotNull(parsedMS);
         assertEquals(ss, parsedMS);
@@ -56,7 +56,7 @@ class EditMateGenericStorageSystemTest {
     void parseJSON() throws IOException {
 
         final String json = "{\n" +
-            "  \"@type\": \"EditMateGenericStorageSystem\",\n" +
+            "  \"@type\": \"ArvatoEditMateGenericStorageSystem\",\n" +
             "  \"id\": \"e96e57f9-09a5-4af2-9473-c5c9308d0aaf\",\n" +
             "  \"name\": \"name\",\n" +
             "  \"description\": \"description\",\n" +
@@ -67,8 +67,8 @@ class EditMateGenericStorageSystemTest {
 
         ObjectMapper mapper = new ObjectMapper();
 
-        EditMateGenericStorageSystem parsedMS = mapper.reader()
-            .forType(EditMateGenericStorageSystem.class).readValue(json);
+        ArvatoEditMateGenericStorageSystem parsedMS = mapper.reader()
+            .forType(ArvatoEditMateGenericStorageSystem.class).readValue(json);
 
         Assertions.assertNotNull(parsedMS);
 

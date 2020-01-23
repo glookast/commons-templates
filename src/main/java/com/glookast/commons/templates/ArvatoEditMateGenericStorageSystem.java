@@ -38,8 +38,8 @@ import java.io.Serializable;
     "location"
 })
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, defaultImpl = EditMateGenericStorageSystem.class)
-public class EditMateGenericStorageSystem
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, defaultImpl = ArvatoEditMateGenericStorageSystem.class)
+public class ArvatoEditMateGenericStorageSystem
     extends StorageSystem
     implements Serializable {
 
