@@ -22,7 +22,7 @@ import java.util.logging.Logger;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * <complexType name="AvidMamMetadataSystem">
+ * <complexType name="ArvatoEditMateMetadataSystem">
  *   <complexContent>
  *     <extension base="{http://templates.commons.glookast.com}MetadataSystem">
  *       <sequence>
@@ -50,7 +50,7 @@ import java.util.logging.Logger;
 @NoArgsConstructor
 @SuperBuilder(toBuilder = true)
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "AvidMamMetadataSystem", propOrder = {
+@XmlType(name = "ArvatoEditMateMetadataSystem", propOrder = {
     "hostname",
     "port",
     "ssl",

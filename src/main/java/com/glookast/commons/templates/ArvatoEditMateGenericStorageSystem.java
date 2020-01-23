@@ -2,23 +2,25 @@ package com.glookast.commons.templates;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
-import java.io.Serializable;
 
 
 /**
- * <p>Java class for GenericStorageSystem complex type.
+ * <p>Java class for ArvatoEditMateGenericStorageSystem complex type.
  *
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * <complexType name="GenericStorageSystem">
+ * <complexType name="ArvatoEditMateGenericStorageSystem">
  *   <complexContent>
  *     <extension base="{http://templates.commons.glookast.com}StorageSystem">
  *       <sequence>
@@ -35,8 +37,9 @@ import java.io.Serializable;
 @NoArgsConstructor
 @SuperBuilder(toBuilder = true)
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "GenericStorageSystem", namespace = "http://templates.commons.glookast.com", propOrder = {
-    "location"
+@XmlType(name = "ArvatoEditMateGenericStorageSystem", namespace = "http://templates.commons.glookast.com", propOrder = {
+    "location",
+    "VPMSStorageId"
 })
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, defaultImpl = ArvatoEditMateGenericStorageSystem.class)
