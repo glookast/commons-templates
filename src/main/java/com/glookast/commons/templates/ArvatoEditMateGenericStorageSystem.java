@@ -1,6 +1,7 @@
 package com.glookast.commons.templates;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,6 +26,8 @@ import javax.xml.bind.annotation.XmlType;
  *     <extension base="{http://templates.commons.glookast.com}StorageSystem">
  *       <sequence>
  *         <element name="location" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         <element name="option" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         <element name="VPMSStorageId" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
@@ -39,6 +42,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ArvatoEditMateGenericStorageSystem", namespace = "http://templates.commons.glookast.com", propOrder = {
     "location",
+    "option",
     "VPMSStorageId"
 })
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -50,6 +54,10 @@ public class ArvatoEditMateGenericStorageSystem
     protected String location;
 
     @XmlElement(required = true)
+    protected String option;
+    
+    @XmlElement(required = true)
+    @JsonProperty("VPMSStorageId")
     protected String VPMSStorageId;
 
 }

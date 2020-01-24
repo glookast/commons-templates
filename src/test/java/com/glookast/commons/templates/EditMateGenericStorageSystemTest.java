@@ -33,6 +33,7 @@ class EditMateGenericStorageSystemTest {
             .name("name")
             .description("description")
             .location("C:\\location\\")
+            .option("none")
             .VPMSStorageId("VPMS storage id")
             .build();
 
@@ -60,9 +61,9 @@ class EditMateGenericStorageSystemTest {
             "  \"name\": \"name\",\n" +
             "  \"description\": \"description\",\n" +
             "  \"location\": \"C:\\\\location\\\\\",\n" +
-            "  \"vpmsstorageId\": \"VPMS storage id\"\n" +
+            "  \"option\": \"none\",\n" +
+            "  \"VPMSStorageId\": \"VPMS storage id\"\n" +
             "}";
-
 
         ObjectMapper mapper = new ObjectMapper();
 
@@ -75,6 +76,7 @@ class EditMateGenericStorageSystemTest {
         Assertions.assertEquals(parsedMS.getName(), "name");
         Assertions.assertEquals(parsedMS.getDescription(), "description");
         Assertions.assertEquals(parsedMS.getLocation(), "C:\\location\\");
+        Assertions.assertEquals(parsedMS.getOption(), "none");
         Assertions.assertEquals(parsedMS.getVPMSStorageId(), "VPMS storage id");
 
     }
