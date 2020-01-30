@@ -92,6 +92,14 @@ public class ArvatoEditMateMetadataSystem
     protected String restrictionColorName;
     protected Map<String, String> metadataFieldsMap;
 
+    // DEFAULTS
+    public static final String LOCATOR_TYPE_NAME_DEFAULT = "V3_MarkerGroup";
+    public static final String LOCATOR_NOTE_NAME_DEFAULT = "V3_Note";
+    public static final String LOCATOR_COLOR_NAME_DEFAULT = "V3_Color";
+    public static final String RESTRICTION_TYPE_NAME_DEFAULT = "V3_RestrictionGroup";
+    public static final String RESTRICTION_NOTE_NAME_DEFAULT = "V3_Note";
+    public static final String RESTRICTION_COLOR_NAME_DEFAULT = "V3_Color";
+    
     public static Map<String, String> parseMetadataFieldsMap(String json) {
 
         if (json != null) {
