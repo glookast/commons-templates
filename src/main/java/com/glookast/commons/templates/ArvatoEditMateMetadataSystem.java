@@ -38,6 +38,7 @@ import java.util.logging.Logger;
  *         <element name="restrictionNoteName" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         <element name="restrictionColorName" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         <element name="metadataFieldsMap" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         <element name="isSinglePointMarkerName" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       </sequence>
  *     </extension>
  *   </complexContent>
@@ -62,7 +63,8 @@ import java.util.logging.Logger;
     "restrictionTypeName",
     "restrictionNoteName",
     "restrictionColorName",
-    "metadataFieldsMap"
+    "metadataFieldsMap",
+    "isSinglePointMarkerName"
 })
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, defaultImpl = ArvatoEditMateMetadataSystem.class)
@@ -90,7 +92,10 @@ public class ArvatoEditMateMetadataSystem
     protected String restrictionNoteName;
     @XmlElement(required = true)
     protected String restrictionColorName;
+    
     protected Map<String, String> metadataFieldsMap;
+
+    protected String isSinglePointMarkerName;
 
     // DEFAULTS
     public static final String LOCATOR_TYPE_NAME_DEFAULT = "V3_MarkerGroup";
@@ -99,6 +104,7 @@ public class ArvatoEditMateMetadataSystem
     public static final String RESTRICTION_TYPE_NAME_DEFAULT = "V3_RestrictionGroup";
     public static final String RESTRICTION_NOTE_NAME_DEFAULT = "V3_Note";
     public static final String RESTRICTION_COLOR_NAME_DEFAULT = "V3_Color";
+    public static final String IS_SINGLE_POINT_MARKER_NAME_DEFAULT = "V3_IsSinglePointerMarker";
     
     public static Map<String, String> parseMetadataFieldsMap(String json) {
 

@@ -9,8 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 class ArvatoEditMateMetadataSystemTest {
 
@@ -43,6 +42,7 @@ class ArvatoEditMateMetadataSystemTest {
             .restrictionTypeName("restriction_type_name")
             .restrictionNoteName("restriction_note_name")
             .restrictionColorName("restriction_color_name")
+            .isSinglePointMarkerName("is_single_point_marker")
             .metadataFieldsMap(fieldsMap)
             .build();
 
