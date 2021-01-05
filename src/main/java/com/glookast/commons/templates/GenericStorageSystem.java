@@ -44,6 +44,12 @@ public class GenericStorageSystem
     @XmlElement(required = true)
     protected String location;
 
+    @XmlElement
+    protected Boolean jsonExport;
+    
+    @XmlElement 
+    protected String jsonExportLocation;
+
     /**
      * Default no-arg constructor
      */
@@ -55,16 +61,20 @@ public class GenericStorageSystem
     /**
      * Fully-initialising value constructor
      */
-    public GenericStorageSystem(final UUID id, final String name, final String description, final String location)
+    public GenericStorageSystem(final UUID id, final String name, final String description, final String location, final Boolean jsonExport, final String jsonExportLocation)
     {
         super(id, name, description);
         this.location = location;
+        this.jsonExport = jsonExport;
+        this.jsonExportLocation = jsonExportLocation;
     }
 
     public GenericStorageSystem(GenericStorageSystem ss)
     {
         super(ss);
         this.location = ss.location;
+        this.jsonExport = ss.jsonExport;
+        this.jsonExportLocation = ss.jsonExportLocation;
     }
 
     /**
@@ -89,6 +99,22 @@ public class GenericStorageSystem
         this.location = value;
     }
 
+    public Boolean getJsonExport() {
+        return jsonExport;
+    }
+
+    public void setJsonExport(Boolean jsonExport) {
+        this.jsonExport = jsonExport;
+    }
+
+    public String getJsonExportLocation() {
+        return jsonExportLocation;
+    }
+
+    public void setJsonExportLocation(String jsonExportLocation) {
+        this.jsonExportLocation = jsonExportLocation;
+    }
+
     @Override
     public boolean equals(Object o)
     {
@@ -102,19 +128,22 @@ public class GenericStorageSystem
             return false;
         }
         GenericStorageSystem that = (GenericStorageSystem) o;
-        return Objects.equals(getLocation(), that.getLocation());
+        return Objects.equals(getLocation(), that.getLocation()) &&
+            Objects.equals(getJsonExport(), that.getJsonExport()) &&
+            Objects.equals(getJsonExportLocation(), that.getJsonExportLocation());
     }
 
     @Override
     public int hashCode()
     {
 
-        return Objects.hash(super.hashCode(), getLocation());
+        return Objects.hash(super.hashCode(), getLocation(), getJsonExport(), getJsonExportLocation());
     }
 
     @Override
     public String toString()
     {
-        return "GenericStorageSystem{" + "id=" + id + ", name=" + name + ", description=" + description + ", location=" + location + '}';
+        return "GenericStorageSystem{" + "id=" + id + ", name=" + name + ", description=" + description + 
+            ", location=" + location + ", jsonExport=" + jsonExport + ", jsonExportLocation=" + jsonExportLocation + '}';
     }
 }
