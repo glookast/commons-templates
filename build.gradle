@@ -3,7 +3,7 @@ apply plugin: "maven"
 apply plugin: "signing"
 
 group = "com.glookast.commons"
-version = "3.1.1-SNAPSHOT-JSON-EXPORT"
+version = "3.1.1a-SNAPSHOT"
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
