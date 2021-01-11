@@ -53,6 +53,7 @@ import java.util.UUID;
     @JsonSubTypes.Type(value = AvidMamMetadataSystem.class, name = "AvidMamMetadataSystem"),
     @JsonSubTypes.Type(value = AvidPamMetadataSystem.class, name = "AvidPamMetadataSystem"),
     @JsonSubTypes.Type(value = XmlExportMetadataSystem.class, name = "XmlExportMetadataSystem"),
+    @JsonSubTypes.Type(value = JsonExportMetadataSystem.class, name = "JsonExportMetadataSystem"),
     @JsonSubTypes.Type(value = ArvatoEditMateMetadataSystem.class, name = "ArvatoEditMateMetadataSystem")
 })
 public abstract class MetadataSystem implements Serializable
