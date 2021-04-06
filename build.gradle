@@ -124,6 +124,11 @@ uploadArchives {
                         name "Joost Rovers"
                         email "joost.rovers@glookast.com"
                     }
+                    developer {
+                        id "tiago.pereira"
+                        name "Tiago Pereira"
+                        email "tiago.pereira@glookast.com"
+                    }
                 }
             }
         }
