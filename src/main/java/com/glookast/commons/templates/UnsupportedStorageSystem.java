@@ -10,6 +10,12 @@ import lombok.experimental.SuperBuilder;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 
+/**
+ * This is a "fallback" Storage System intended as a buffer between a new metadata system being
+ * added to Capturer's API and it actually being supported on clients
+ * Until then it gets parsed into an UnsupportedStorageSystem and the API clients are free to handle it as they
+ * see fit
+ */
 @Data
 @AllArgsConstructor
 @SuperBuilder(toBuilder = true)
