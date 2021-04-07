@@ -11,6 +11,26 @@ import static org.junit.jupiter.api.Assertions.*;
 class UnsupportedStorageSystemTest {
 
     @Test
+    void parseAvidNexisStorageSystemJSON() throws IOException {
+
+        final String json = "{\n" +
+            "  \"@type\" : \"AvidNexisStorageSystem\",\n" +
+            "  \"id\" : \"7bd12619-0428-4482-8a54-1bbf6259bfec\",\n" +
+            "  \"name\" : \"NEXIS\",\n" +
+            "  \"description\" : \"\",\n" +
+            "  \"systemDirector\" : \"NEXIS\",\n" +
+            "  \"workspace\" : \"Media1\"\n" +
+            "}";
+
+        ObjectMapper mapper = new ObjectMapper();
+
+        StorageSystem storageSystem = mapper.readValue(json, StorageSystem.class);
+
+        assertTrue(storageSystem instanceof AvidNexisStorageSystem);
+
+    }
+
+    @Test
     void parseInvalidStorageSystemJSON() {
 
         final String json = "invalidJSON";

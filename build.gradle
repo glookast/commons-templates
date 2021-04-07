@@ -3,7 +3,7 @@ apply plugin: "maven"
 apply plugin: "signing"
 
 group = "com.glookast.commons"
-version = "3.2.0-RC1-SNAPSHOT"
+version = "3.2.0-RC2-SNAPSHOT"
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -45,6 +45,14 @@ dependencies {
 
 test {
     useJUnitPlatform()
+
+    // Always run tests, even when nothing changed.
+    dependsOn 'cleanTest'
+    
+    // Show test results.
+    testLogging {
+        events "skipped", "failed", "passed"
+    }
 }
 
 task javadocJar(type: Jar) {
