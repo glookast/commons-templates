@@ -23,6 +23,6 @@ import javax.xml.bind.annotation.XmlAccessorType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class UnsupportedStorageSystem extends StorageSystem {
+public class UnsupportedStorageSystem extends MetadataSystem {
 
 }
