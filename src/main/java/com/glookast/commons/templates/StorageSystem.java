@@ -4,14 +4,12 @@ package com.glookast.commons.templates;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import com.fasterxml.jackson.databind.annotation.JsonTypeIdResolver;
-import com.glookast.commons.templates.resolvers.StorageSystemTemplateResolver;
+import com.glookast.commons.xml.XmlAdapterUUID;
 import lombok.experimental.SuperBuilder;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlSeeAlso;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import java.io.Serializable;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -56,33 +54,111 @@ import java.util.UUID;
     @JsonSubTypes.Type(value = FtpStorageSystem.class, name = "FtpStorageSystem"),
     @JsonSubTypes.Type(value = ArvatoEditMateGenericStorageSystem.class, name = "ArvatoEditMateGenericStorageSystem")
 })
-@JsonTypeIdResolver(StorageSystemTemplateResolver.class)
-public abstract class StorageSystem extends BaseTemplate {
+public abstract class StorageSystem implements Serializable
+{
+
+    @XmlElement(required = true, type = String.class)
+    @XmlJavaTypeAdapter(XmlAdapterUUID.class)
+    protected UUID id;
+    @XmlElement(required = true)
+    protected String name;
+    @XmlElement(required = true)
+    protected String description;
 
     /**
      * Default no-arg constructor
      */
-    public StorageSystem() {
+    public StorageSystem()
+    {
         super();
     }
 
     /**
      * Fully-initialising value constructor
      */
-    public StorageSystem(final UUID id, final String name, final String description) {
+    public StorageSystem(final UUID id, final String name, final String description)
+    {
         this.id = id;
         this.name = name;
         this.description = description;
     }
 
-    public StorageSystem(StorageSystem ss) {
+    public StorageSystem(StorageSystem ss)
+    {
         this.id = ss.id;
         this.name = ss.name;
         this.description = ss.description;
     }
 
+    /**
+     * Gets the value of the id property.
+     *
+     * @return possible object is
+     * {@link String }
+     */
+    public UUID getId()
+    {
+        return id;
+    }
+
+    /**
+     * Sets the value of the id property.
+     *
+     * @param value allowed object is
+     *              {@link String }
+     */
+    public void setId(UUID value)
+    {
+        this.id = value;
+    }
+
+    /**
+     * Gets the value of the name property.
+     *
+     * @return possible object is
+     * {@link String }
+     */
+    public String getName()
+    {
+        return name;
+    }
+
+    /**
+     * Sets the value of the name property.
+     *
+     * @param value allowed object is
+     *              {@link String }
+     */
+    public void setName(String value)
+    {
+        this.name = value;
+    }
+
+    /**
+     * Gets the value of the description property.
+     *
+     * @return possible object is
+     * {@link String }
+     */
+    public String getDescription()
+    {
+        return description;
+    }
+
+    /**
+     * Sets the value of the description property.
+     *
+     * @param value allowed object is
+     *              {@link String }
+     */
+    public void setDescription(String value)
+    {
+        this.description = value;
+    }
+
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(Object o)
+    {
         if (this == o) {
             return true;
         }
@@ -91,18 +167,20 @@ public abstract class StorageSystem extends BaseTemplate {
         }
         StorageSystem that = (StorageSystem) o;
         return Objects.equals(getId(), that.getId()) &&
-            Objects.equals(getName(), that.getName()) &&
-            Objects.equals(getDescription(), that.getDescription());
+               Objects.equals(getName(), that.getName()) &&
+               Objects.equals(getDescription(), that.getDescription());
     }
 
     @Override
-    public int hashCode() {
+    public int hashCode()
+    {
 
         return Objects.hash(getId(), getName(), getDescription());
     }
 
     @Override
-    public String toString() {
+    public String toString()
+    {
         return "StorageSystem{" + "id=" + id + ", name=" + name + ", description=" + description + '}';
     }
 }
