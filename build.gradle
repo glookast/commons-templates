@@ -3,7 +3,7 @@ apply plugin: "maven"
 apply plugin: "signing"
 
 group = "com.glookast.commons"
-version = "3.2.0"
+version = "3.1.2"
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -45,14 +45,6 @@ dependencies {
 
 test {
     useJUnitPlatform()
-
-    // Always run tests, even when nothing changed.
-    dependsOn 'cleanTest'
-    
-    // Show test results.
-    testLogging {
-        events "skipped", "failed", "passed"
-    }
 }
 
 task javadocJar(type: Jar) {
@@ -71,6 +63,26 @@ artifacts {
 
 signing {
     sign configurations.archives
+}
+
+task tagRelease(type: Exec) {
+    commandLine "git"
+    args "tag", "-a", "$version", "-m", "Created release $version"
+}
+
+task tagReleaseRemote(type: Exec) {
+    commandLine "git"
+    args "push", "origin", "$version"
+}
+
+task untagRelease(type: Exec) {
+    commandLine "git"
+    args "tag", "-d", "$version"
+}
+
+task untagReleaseRemote(type: Exec) {
+    commandLine "git"
+    args "push", "-d", "origin", "$version"
 }
 
 uploadArchives {
@@ -111,11 +123,6 @@ uploadArchives {
                         id "joostrovers"
                         name "Joost Rovers"
                         email "joost.rovers@glookast.com"
-                    }
-                    developer {
-                        id "tiago.pereira"
-                        name "Tiago Pereira"
-                        email "tiago.pereira@glookast.com"
                     }
                 }
             }

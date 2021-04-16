@@ -9,8 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 class ArvatoEditMateMetadataSystemTest {
 
@@ -66,24 +65,24 @@ class ArvatoEditMateMetadataSystemTest {
     void parseJSON() throws IOException {
 
         final String json = "{\n" +
-            "\"@type\": \"ArvatoEditMateMetadataSystem\",\n" +
-            "\"id\": \"62f5f283-d8e7-4f1a-83b0-f2c83d834472\",\n" +
-            "\"name\": \"name\",\n" +
-            "\"description\": \"description\",\n" +
-            "\"hostname\": \"hostname\",\n" +
-            "\"port\": 1234,\n" +
-            "\"ssl\": true,\n" +
-            "\"username\": \"username\",\n" +
-            "\"password\": \"password\",\n" +
-            "\"locatorTypeName\": \"locator_type_name\",\n" +
-            "\"locatorNoteName\": \"locator_note_name\",\n" +
-            "\"locatorColorName\": \"locator_color_name\",\n" +
-            "\"restrictionTypeName\": \"restriction_type_name\",\n" +
-            "\"restrictionNoteName\": \"restriction_note_name\",\n" +
-            "\"restrictionColorName\": \"restriction_color_name\",\n" +
-            "\"metadataFieldsMap\": {\n" +
+            "    \"@type\": \"ArvatoEditMateMetadataSystem\",\n" +
+            "    \"id\": \"62f5f283-d8e7-4f1a-83b0-f2c83d834472\",\n" +
+            "    \"name\": \"name\",\n" +
+            "    \"description\": \"description\",\n" +
+            "    \"hostname\": \"hostname\",\n" +
+            "    \"port\": 1234,\n" +
+            "    \"ssl\": true,\n" +
+            "    \"username\": \"username\",\n" +
+            "    \"password\": \"password\",\n" +
+            "    \"locatorTypeName\": \"locator_type_name\",\n" +
+            "    \"locatorNoteName\": \"locator_note_name\",\n" +
+            "    \"locatorColorName\": \"locator_color_name\",\n" +
+            "    \"restrictionTypeName\": \"restriction_type_name\",\n" +
+            "    \"restrictionNoteName\": \"restriction_note_name\",\n" +
+            "    \"restrictionColorName\": \"restriction_color_name\",\n" +
+            "    \"metadataFieldsMap\": {\n" +
             "      \"glookast\": \"editmate\"\n" +
-            "}\n" +
+            "  }\n" +
             "}";
 
 
@@ -172,27 +171,4 @@ class ArvatoEditMateMetadataSystemTest {
         Assertions.assertEquals(map.get("valueC"), "valueD");
 
     }
-
-    @Test
-    void parseUnsupportedJSON() throws IOException {
-
-        final String json = "{\n" +
-            "\"@type\": \"SomeNotYetSupportedType\",\n" +
-            "\"id\": \"62f5f283-d8e7-4f1a-83b0-f2c83d834472\",\n" +
-            "\"name\": \"name\",\n" +
-            "\"description\": \"description\",\n" +
-            "\"location\" : \"c:\\\\temp\"\n" +
-            "}\n" +
-            "}";
-
-        ObjectMapper mapper = new ObjectMapper();
-
-        MetadataSystem parsedMS = mapper.readValue(json, MetadataSystem.class);
-
-        Assertions.assertNotNull(parsedMS);
-
-        Assertions.assertTrue(parsedMS instanceof UnsupportedMetadataSystem);
-
-    }
-
 }
