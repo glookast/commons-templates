@@ -3,7 +3,7 @@ apply plugin: "maven"
 apply plugin: "signing"
 
 group = "com.glookast.commons"
-version = "3.1.1"
+version = "3.1.2"
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -63,6 +63,26 @@ artifacts {
 
 signing {
     sign configurations.archives
+}
+
+task tagRelease(type: Exec) {
+    commandLine "git"
+    args "tag", "-a", "$version", "-m", "Created release $version"
+}
+
+task tagReleaseRemote(type: Exec) {
+    commandLine "git"
+    args "push", "origin", "$version"
+}
+
+task untagRelease(type: Exec) {
+    commandLine "git"
+    args "tag", "-d", "$version"
+}
+
+task untagReleaseRemote(type: Exec) {
+    commandLine "git"
+    args "push", "-d", "origin", "$version"
 }
 
 uploadArchives {

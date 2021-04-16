@@ -44,6 +44,7 @@ import java.util.UUID;
     AvidMamMetadataSystem.class,
     AvidPamMetadataSystem.class,
     XmlExportMetadataSystem.class,
+    JsonExportMetadataSystem.class,
     ArvatoEditMateMetadataSystem.class
 })
 @JsonInclude(JsonInclude.Include.NON_NULL)
