@@ -43,7 +43,7 @@ public abstract class AbstractSystemTemplateResolver extends TypeIdResolverBase 
     @Override
     public String idFromValueAndType(Object obj, Class<?> subType) {
 
-        Optional<JsonSubTypes.Type> foundTypeId = getAllRegisteredSubTypes(this.getSystemTypeClass())
+        Optional<JsonSubTypes.Type> foundTypeId = getAllRegisteredSubTypes()
             .stream()
             .filter(t -> t.value().equals(subType))
             .findFirst();
@@ -58,7 +58,7 @@ public abstract class AbstractSystemTemplateResolver extends TypeIdResolverBase 
 
         Class<?> subType = this.getUnsupportedSystemTypeClass();
 
-        List<JsonSubTypes.Type> subTypes = getAllRegisteredSubTypes(this.getSystemTypeClass());
+        List<JsonSubTypes.Type> subTypes = getAllRegisteredSubTypes();
         Optional<JsonSubTypes.Type> foundSubType = subTypes
             .stream()
             .filter(t -> t.name().equals(id))
@@ -79,26 +79,19 @@ public abstract class AbstractSystemTemplateResolver extends TypeIdResolverBase 
         throw new Exception("This method must be overridden by concrete class");
     }
 
-    private List<JsonSubTypes.Type> getAllRegisteredSubTypes(Class<?> templateTypeClass) throws Exception {
-        
+    private List<JsonSubTypes.Type> getAllRegisteredSubTypes() throws Exception {
+
+        Class<?> templateTypeClass = this.getSystemTypeClass();
         Annotation[] annotations = templateTypeClass.getAnnotations();
-        List<JsonSubTypes.Type> subTypes = new ArrayList<>();
 
         for (Annotation annotation : annotations) {
             if (annotation instanceof JsonSubTypes) {
                 JsonSubTypes.Type[] types = ((JsonSubTypes) annotation).value();
-                subTypes.addAll(Arrays.asList(types));
-                
-                // check all descendants for more sub-types
-                for (JsonSubTypes.Type type : types) {
-                    Class<?> subClass = Class.forName(type.value().getCanonicalName());
-                    subTypes.addAll(getAllRegisteredSubTypes(subClass));
-                }
-                
+                return Arrays.stream(types).collect(Collectors.toList());
             }
         }
 
-        return subTypes;
+        return new ArrayList<>();
 
     }
 
