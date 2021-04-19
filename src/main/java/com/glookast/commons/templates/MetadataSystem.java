@@ -5,12 +5,12 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.databind.annotation.JsonTypeIdResolver;
 import com.glookast.commons.templates.resolvers.MetadataSystemTemplateResolver;
+import com.glookast.commons.xml.XmlAdapterUUID;
 import lombok.experimental.SuperBuilder;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlSeeAlso;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import java.io.Serializable;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -60,7 +60,15 @@ import java.util.UUID;
     @JsonSubTypes.Type(value = ArvatoEditMateMetadataSystem.class, name = "ArvatoEditMateMetadataSystem")
 })
 @JsonTypeIdResolver(MetadataSystemTemplateResolver.class)
-public abstract class MetadataSystem extends BaseTemplate {
+public abstract class MetadataSystem implements Serializable {
+
+    @XmlElement(required = true, type = String.class)
+    @XmlJavaTypeAdapter(XmlAdapterUUID.class)
+    protected UUID id;
+    @XmlElement(required = true)
+    protected String name;
+    @XmlElement(required = true)
+    protected String description;
 
     /**
      * Default no-arg constructor
@@ -84,6 +92,66 @@ public abstract class MetadataSystem extends BaseTemplate {
         this.description = ms.description;
     }
 
+    /**
+     * Gets the value of the id property.
+     *
+     * @return possible object is
+     * {@link String }
+     */
+    public UUID getId() {
+        return id;
+    }
+
+    /**
+     * Sets the value of the id property.
+     *
+     * @param value allowed object is
+     *              {@link String }
+     */
+    public void setId(UUID value) {
+        this.id = value;
+    }
+
+    /**
+     * Gets the value of the name property.
+     *
+     * @return possible object is
+     * {@link String }
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * Sets the value of the name property.
+     *
+     * @param value allowed object is
+     *              {@link String }
+     */
+    public void setName(String value) {
+        this.name = value;
+    }
+
+    /**
+     * Gets the value of the description property.
+     *
+     * @return possible object is
+     * {@link String }
+     */
+    public String getDescription() {
+        return description;
+    }
+
+    /**
+     * Sets the value of the description property.
+     *
+     * @param value allowed object is
+     *              {@link String }
+     */
+    public void setDescription(String value) {
+        this.description = value;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -98,4 +166,13 @@ public abstract class MetadataSystem extends BaseTemplate {
             Objects.equals(getDescription(), that.getDescription());
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getName(), getDescription());
+    }
+
+    @Override
+    public String toString() {
+        return "MetadataSystem{" + "id=" + id + ", name=" + name + ", description=" + description + '}';
+    }
 }
