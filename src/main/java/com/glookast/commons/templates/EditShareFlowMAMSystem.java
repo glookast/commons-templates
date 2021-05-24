@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlType;
  *     <extension base="{http://templates.commons.glookast.com}MetadataSystem">
  *       <sequence>
  *         <element name="hostname" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         <element name="portNumber" type="{http://www.w3.org/2001/XMLSchema}unsignedShort"/>
+ *         <element name="port" type="{http://www.w3.org/2001/XMLSchema}unsignedShort"/>
  *         <element name="ssl" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
  *         <element name="username" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         <element name="password" type="{http://www.w3.org/2001/XMLSchema}string"/>
@@ -46,7 +46,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "EditShareFlowMAMSystem", propOrder = {
     "hostname",
-    "portNumber",
+    "port",
     "ssl",
     "username",
     "password",
@@ -61,7 +61,7 @@ public class EditShareFlowMAMSystem
 
     protected String hostname;
     @XmlSchemaType(name = "unsignedShort")
-    protected int portNumber;
+    protected int port;
     protected boolean ssl;
     protected String username;
     protected String password;

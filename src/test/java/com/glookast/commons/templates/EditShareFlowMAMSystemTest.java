@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
 import java.io.IOException;
 import java.util.UUID;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class EditShareFlowMAMSystemTest {
@@ -28,7 +27,7 @@ class EditShareFlowMAMSystemTest {
             .name("name")
             .description("description")
             .hostname("hostname")
-            .portNumber(1234)
+            .port(1234)
             .ssl(true)
             .username("username")
             .password("password")
@@ -61,7 +60,7 @@ class EditShareFlowMAMSystemTest {
             "  \"name\": \"name\",\n" +
             "  \"description\": \"description\",\n" +
             "  \"hostname\": \"hostname\",\n" +
-            "  \"portNumber\": 1234,\n" +
+            "  \"port\": 1234,\n" +
             "  \"ssl\": true,\n" +
             "  \"username\": \"username\",\n" +
             "  \"password\": \"password\",\n" +
@@ -82,7 +81,7 @@ class EditShareFlowMAMSystemTest {
         Assertions.assertEquals(parsedMS.getName(), "name");
         Assertions.assertEquals(parsedMS.getDescription(), "description");
         Assertions.assertEquals(parsedMS.getHostname(), "hostname");
-        Assertions.assertEquals(parsedMS.getPortNumber(), 1234);
+        Assertions.assertEquals(parsedMS.getPort(), 1234);
         Assertions.assertTrue(parsedMS.isSsl());
         Assertions.assertEquals(parsedMS.getUsername(), "username");
         Assertions.assertEquals(parsedMS.getPassword(), "password");
