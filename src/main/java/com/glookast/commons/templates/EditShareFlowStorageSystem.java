@@ -50,7 +50,7 @@ import javax.xml.bind.annotation.XmlType;
     "ssl",
     "username",
     "password",
-    "storageUrl",
+    "storageURL",
     "mediaSpace",
     "hasFlowProxy"
 })
