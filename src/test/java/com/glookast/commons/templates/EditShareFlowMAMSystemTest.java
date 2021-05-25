@@ -31,7 +31,7 @@ class EditShareFlowStorageSystemTest {
             .ssl(true)
             .username("username")
             .password("password")
-            .storageUrl("storage url")
+            .storageURL("storage url")
             .mediaSpace("media space")
             .flowProxy(true)
             .build();
@@ -64,7 +64,7 @@ class EditShareFlowStorageSystemTest {
             "  \"ssl\": true,\n" +
             "  \"username\": \"username\",\n" +
             "  \"password\": \"password\",\n" +
-            "  \"storageUrl\": \"storage url\",\n" +
+            "  \"storageURL\": \"storage url\",\n" +
             "  \"mediaSpace\": \"media space\",\n" +
             "  \"flowProxy\": true\n" +
             "}";
@@ -85,7 +85,7 @@ class EditShareFlowStorageSystemTest {
         Assertions.assertTrue(parsedMS.isSsl());
         Assertions.assertEquals(parsedMS.getUsername(), "username");
         Assertions.assertEquals(parsedMS.getPassword(), "password");
-        Assertions.assertEquals(parsedMS.getStorageUrl(), "storage url");
+        Assertions.assertEquals(parsedMS.getStorageURL(), "storage url");
         Assertions.assertEquals(parsedMS.getMediaSpace(), "media space");
         Assertions.assertTrue(parsedMS.isFlowProxy());
 

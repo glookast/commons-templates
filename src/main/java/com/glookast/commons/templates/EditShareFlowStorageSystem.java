@@ -65,7 +65,7 @@ public class EditShareFlowStorageSystem
     protected boolean ssl;
     protected String username;
     protected String password;
-    protected String storageUrl;
+    protected String storageURL;
     protected String mediaSpace;
     protected boolean flowProxy;
 
