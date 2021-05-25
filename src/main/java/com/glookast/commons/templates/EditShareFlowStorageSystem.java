@@ -15,14 +15,14 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for EditShareFlowMAMSystem complex type.
+ * <p>Java class for EditShareFlowStorageSystem complex type.
  *
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * <complexType name="EditShareFlowMAMSystem">
+ * <complexType name="EditShareFlowStorageSystem">
  *   <complexContent>
- *     <extension base="{http://templates.commons.glookast.com}MetadataSystem">
+ *     <extension base="{http://templates.commons.glookast.com}StorageSystem">
  *       <sequence>
  *         <element name="hostname" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         <element name="port" type="{http://www.w3.org/2001/XMLSchema}unsignedShort"/>
@@ -44,7 +44,7 @@ import javax.xml.bind.annotation.XmlType;
 @NoArgsConstructor
 @SuperBuilder(toBuilder = true)
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "EditShareFlowMAMSystem", propOrder = {
+@XmlType(name = "EditShareFlowStorageSystem", propOrder = {
     "hostname",
     "port",
     "ssl",
@@ -55,9 +55,9 @@ import javax.xml.bind.annotation.XmlType;
     "hasFlowProxy"
 })
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, defaultImpl = EditShareFlowMAMSystem.class)
-public class EditShareFlowMAMSystem
-    extends MetadataSystem {
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, defaultImpl = EditShareFlowStorageSystem.class)
+public class EditShareFlowStorageSystem
+    extends StorageSystem {
 
     protected String hostname;
     @XmlSchemaType(name = "unsignedShort")

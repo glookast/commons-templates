@@ -9,12 +9,12 @@ import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-class EditShareFlowMAMSystemTest {
+class EditShareFlowStorageSystemTest {
 
     @Test
     public void emptyMetadataSystem() {
 
-        final EditShareFlowMAMSystem ms = new EditShareFlowMAMSystem();
+        final EditShareFlowStorageSystem ms = new EditShareFlowStorageSystem();
         Assertions.assertNotNull(ms);
 
     }
@@ -22,7 +22,7 @@ class EditShareFlowMAMSystemTest {
     @Test
     void toJSON() throws IOException {
 
-        EditShareFlowMAMSystem ms = EditShareFlowMAMSystem.builder()
+        EditShareFlowStorageSystem ms = EditShareFlowStorageSystem.builder()
             .id(UUID.randomUUID())
             .name("name")
             .description("description")
@@ -43,8 +43,8 @@ class EditShareFlowMAMSystemTest {
         assertNotNull(json);
 
         // parse it and check it again
-        EditShareFlowMAMSystem parsedMS = mapper.reader()
-            .forType(EditShareFlowMAMSystem.class).readValue(json);
+        EditShareFlowStorageSystem parsedMS = mapper.reader()
+            .forType(EditShareFlowStorageSystem.class).readValue(json);
 
         assertNotNull(parsedMS);
         assertEquals(ms, parsedMS);
@@ -55,7 +55,7 @@ class EditShareFlowMAMSystemTest {
     void parseJSON() throws IOException {
 
         final String json = "{\n" +
-            "  \"@type\": \"EditShareFlowMAMSystem\",\n" +
+            "  \"@type\": \"EditShareFlowStorageSystem\",\n" +
             "  \"id\": \"f1806846-76c5-4b2a-97ea-6e9948817fbc\",\n" +
             "  \"name\": \"name\",\n" +
             "  \"description\": \"description\",\n" +
@@ -72,8 +72,8 @@ class EditShareFlowMAMSystemTest {
 
         ObjectMapper mapper = new ObjectMapper();
 
-        EditShareFlowMAMSystem parsedMS = mapper.reader()
-            .forType(EditShareFlowMAMSystem.class).readValue(json);
+        EditShareFlowStorageSystem parsedMS = mapper.reader()
+            .forType(EditShareFlowStorageSystem.class).readValue(json);
 
         Assertions.assertNotNull(parsedMS);
 

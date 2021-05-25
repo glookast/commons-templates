@@ -54,7 +54,8 @@ import java.util.UUID;
     @JsonSubTypes.Type(value = GenericStorageSystem.class, name = "GenericStorageSystem"),
     @JsonSubTypes.Type(value = AvidStorageSystem.class, name = "AvidStorageSystem"),
     @JsonSubTypes.Type(value = FtpStorageSystem.class, name = "FtpStorageSystem"),
-    @JsonSubTypes.Type(value = ArvatoEditMateGenericStorageSystem.class, name = "ArvatoEditMateGenericStorageSystem")
+    @JsonSubTypes.Type(value = ArvatoEditMateGenericStorageSystem.class, name = "ArvatoEditMateGenericStorageSystem"),
+    @JsonSubTypes.Type(value = EditShareFlowStorageSystem.class, name = "EditShareFlowStorageSystem")
 })
 @JsonTypeIdResolver(StorageSystemTemplateResolver.class)
 public abstract class StorageSystem implements Serializable {
