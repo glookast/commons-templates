@@ -4,6 +4,8 @@ package com.glookast.commons.templates;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.databind.annotation.JsonTypeIdResolver;
+import com.glookast.commons.templates.resolvers.StorageSystemTemplateResolver;
 import com.glookast.commons.xml.XmlAdapterUUID;
 import lombok.experimental.SuperBuilder;
 
@@ -52,10 +54,11 @@ import java.util.UUID;
     @JsonSubTypes.Type(value = GenericStorageSystem.class, name = "GenericStorageSystem"),
     @JsonSubTypes.Type(value = AvidStorageSystem.class, name = "AvidStorageSystem"),
     @JsonSubTypes.Type(value = FtpStorageSystem.class, name = "FtpStorageSystem"),
-    @JsonSubTypes.Type(value = ArvatoEditMateGenericStorageSystem.class, name = "ArvatoEditMateGenericStorageSystem")
+    @JsonSubTypes.Type(value = ArvatoEditMateGenericStorageSystem.class, name = "ArvatoEditMateGenericStorageSystem"),
+    @JsonSubTypes.Type(value = EditShareFlowStorageSystem.class, name = "EditShareFlowStorageSystem")
 })
-public abstract class StorageSystem implements Serializable
-{
+@JsonTypeIdResolver(StorageSystemTemplateResolver.class)
+public abstract class StorageSystem implements Serializable {
 
     @XmlElement(required = true, type = String.class)
     @XmlJavaTypeAdapter(XmlAdapterUUID.class)
@@ -68,23 +71,20 @@ public abstract class StorageSystem implements Serializable
     /**
      * Default no-arg constructor
      */
-    public StorageSystem()
-    {
+    public StorageSystem() {
         super();
     }
 
     /**
      * Fully-initialising value constructor
      */
-    public StorageSystem(final UUID id, final String name, final String description)
-    {
+    public StorageSystem(final UUID id, final String name, final String description) {
         this.id = id;
         this.name = name;
         this.description = description;
     }
 
-    public StorageSystem(StorageSystem ss)
-    {
+    public StorageSystem(StorageSystem ss) {
         this.id = ss.id;
         this.name = ss.name;
         this.description = ss.description;
@@ -96,8 +96,7 @@ public abstract class StorageSystem implements Serializable
      * @return possible object is
      * {@link String }
      */
-    public UUID getId()
-    {
+    public UUID getId() {
         return id;
     }
 
@@ -107,8 +106,7 @@ public abstract class StorageSystem implements Serializable
      * @param value allowed object is
      *              {@link String }
      */
-    public void setId(UUID value)
-    {
+    public void setId(UUID value) {
         this.id = value;
     }
 
@@ -118,8 +116,7 @@ public abstract class StorageSystem implements Serializable
      * @return possible object is
      * {@link String }
      */
-    public String getName()
-    {
+    public String getName() {
         return name;
     }
 
@@ -129,8 +126,7 @@ public abstract class StorageSystem implements Serializable
      * @param value allowed object is
      *              {@link String }
      */
-    public void setName(String value)
-    {
+    public void setName(String value) {
         this.name = value;
     }
 
@@ -140,8 +136,7 @@ public abstract class StorageSystem implements Serializable
      * @return possible object is
      * {@link String }
      */
-    public String getDescription()
-    {
+    public String getDescription() {
         return description;
     }
 
@@ -151,14 +146,12 @@ public abstract class StorageSystem implements Serializable
      * @param value allowed object is
      *              {@link String }
      */
-    public void setDescription(String value)
-    {
+    public void setDescription(String value) {
         this.description = value;
     }
 
     @Override
-    public boolean equals(Object o)
-    {
+    public boolean equals(Object o) {
         if (this == o) {
             return true;
         }
@@ -167,20 +160,18 @@ public abstract class StorageSystem implements Serializable
         }
         StorageSystem that = (StorageSystem) o;
         return Objects.equals(getId(), that.getId()) &&
-               Objects.equals(getName(), that.getName()) &&
-               Objects.equals(getDescription(), that.getDescription());
+            Objects.equals(getName(), that.getName()) &&
+            Objects.equals(getDescription(), that.getDescription());
     }
 
     @Override
-    public int hashCode()
-    {
+    public int hashCode() {
 
         return Objects.hash(getId(), getName(), getDescription());
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "StorageSystem{" + "id=" + id + ", name=" + name + ", description=" + description + '}';
     }
 }

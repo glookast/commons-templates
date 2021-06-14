@@ -31,7 +31,9 @@ public enum SystemType
     @JsonProperty("AVID")
     AVID,
     @JsonProperty("FTP")
-    FTP;
+    FTP,
+    @JsonProperty("EFS")
+    EFS;
 
     public String value()
     {

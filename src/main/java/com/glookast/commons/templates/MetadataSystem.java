@@ -3,6 +3,8 @@ package com.glookast.commons.templates;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.databind.annotation.JsonTypeIdResolver;
+import com.glookast.commons.templates.resolvers.MetadataSystemTemplateResolver;
 import com.glookast.commons.xml.XmlAdapterUUID;
 import lombok.experimental.SuperBuilder;
 
@@ -57,8 +59,8 @@ import java.util.UUID;
     @JsonSubTypes.Type(value = JsonExportMetadataSystem.class, name = "JsonExportMetadataSystem"),
     @JsonSubTypes.Type(value = ArvatoEditMateMetadataSystem.class, name = "ArvatoEditMateMetadataSystem")
 })
-public abstract class MetadataSystem implements Serializable
-{
+@JsonTypeIdResolver(MetadataSystemTemplateResolver.class)
+public abstract class MetadataSystem implements Serializable {
 
     @XmlElement(required = true, type = String.class)
     @XmlJavaTypeAdapter(XmlAdapterUUID.class)
@@ -71,23 +73,20 @@ public abstract class MetadataSystem implements Serializable
     /**
      * Default no-arg constructor
      */
-    public MetadataSystem()
-    {
+    public MetadataSystem() {
         super();
     }
 
     /**
      * Fully-initialising value constructor
      */
-    public MetadataSystem(final UUID id, final String name, final String description)
-    {
+    public MetadataSystem(final UUID id, final String name, final String description) {
         this.id = id;
         this.name = name;
         this.description = description;
     }
 
-    public MetadataSystem(MetadataSystem ms)
-    {
+    public MetadataSystem(MetadataSystem ms) {
         this.id = ms.id;
         this.name = ms.name;
         this.description = ms.description;
@@ -99,8 +98,7 @@ public abstract class MetadataSystem implements Serializable
      * @return possible object is
      * {@link String }
      */
-    public UUID getId()
-    {
+    public UUID getId() {
         return id;
     }
 
@@ -110,8 +108,7 @@ public abstract class MetadataSystem implements Serializable
      * @param value allowed object is
      *              {@link String }
      */
-    public void setId(UUID value)
-    {
+    public void setId(UUID value) {
         this.id = value;
     }
 
@@ -121,8 +118,7 @@ public abstract class MetadataSystem implements Serializable
      * @return possible object is
      * {@link String }
      */
-    public String getName()
-    {
+    public String getName() {
         return name;
     }
 
@@ -132,8 +128,7 @@ public abstract class MetadataSystem implements Serializable
      * @param value allowed object is
      *              {@link String }
      */
-    public void setName(String value)
-    {
+    public void setName(String value) {
         this.name = value;
     }
 
@@ -143,8 +138,7 @@ public abstract class MetadataSystem implements Serializable
      * @return possible object is
      * {@link String }
      */
-    public String getDescription()
-    {
+    public String getDescription() {
         return description;
     }
 
@@ -154,14 +148,12 @@ public abstract class MetadataSystem implements Serializable
      * @param value allowed object is
      *              {@link String }
      */
-    public void setDescription(String value)
-    {
+    public void setDescription(String value) {
         this.description = value;
     }
 
     @Override
-    public boolean equals(Object o)
-    {
+    public boolean equals(Object o) {
         if (this == o) {
             return true;
         }
@@ -170,19 +162,17 @@ public abstract class MetadataSystem implements Serializable
         }
         MetadataSystem that = (MetadataSystem) o;
         return Objects.equals(getId(), that.getId()) &&
-               Objects.equals(getName(), that.getName()) &&
-               Objects.equals(getDescription(), that.getDescription());
+            Objects.equals(getName(), that.getName()) &&
+            Objects.equals(getDescription(), that.getDescription());
     }
 
     @Override
-    public int hashCode()
-    {
+    public int hashCode() {
         return Objects.hash(getId(), getName(), getDescription());
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "MetadataSystem{" + "id=" + id + ", name=" + name + ", description=" + description + '}';
     }
 }
